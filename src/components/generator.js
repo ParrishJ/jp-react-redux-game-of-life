@@ -1,4 +1,4 @@
-function cellGenerator() {
+export const cellGenerator = () => {
 
 let cells = []
 let rowTracker = 1
@@ -27,4 +27,7 @@ for(let h = 1; h < 51; h++){
 return cells
 }
 
+
 export const cellsFromGenerator = cellGenerator()
+export const cellsCopyFromGenerator = cellGenerator()
+export const cellsCopyTwo = cellGenerator()

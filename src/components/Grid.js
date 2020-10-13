@@ -1,6 +1,7 @@
 import React from 'react'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
+import Button from 'react-bootstrap/Button'
 import { connect } from 'react-redux'
 
 import { toggleAlive, advanceGeneration } from '../actions/cellActions'
@@ -10,6 +11,12 @@ const Grid = (props) => {
     
     return (
         <div>
+            <div>
+                <Button onClick={(e) => {
+                    e.preventDefault();
+                    props.advanceGeneration();
+                }}>Advance Generation</Button>
+           </div>
            {props.cells.map(row => {
                return (
                    <Row noGutters={true}>
@@ -22,7 +29,7 @@ const Grid = (props) => {
                                     e.preventDefault();
                                     props.toggleAlive(cell.cellId)
                                 }}
-                                >{cell.alive}</Col>
+                                ></Col>
                                 )
                             }
                         else {
@@ -49,6 +56,7 @@ const Grid = (props) => {
                    </Row>
                )
            })}
+
         </div>
     )
 }

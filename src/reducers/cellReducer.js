@@ -42,7 +42,50 @@ export const cellReducer = (state = initialState, action) => {
                   //console.log('j', state.cells[i][j])
                   
                   //Logic for counting neighbors
-                  
+              
+              
+              //Logic for determining next generation for cells on the top row (excluding the corners)
+              if(state.cells[i][j].rowId == 1 && state.cells[i][j].colId != 1 && state.cells[i][j].colId != 50 ){
+
+              }
+
+              //Logic for determining next generation for cells on the bottom row (excluding the corners)
+              if(state.cells[i][j].rowId == 50 && state.cells[i][j].colId != 1 && state.cells[i][j].colId != 50 ){
+
+              }
+
+              //Logic for determining next generation for cells on the left edge (excluding the corners)
+              if(state.cells[i][j].colId == 1 && state.cells[i][j].rowId != 1 && state.cells[i][j].rowId != 50 ){
+
+              }
+
+              //Logic for determining next generation for cells on the right edge (excluding the corners)
+              if(state.cells[i][j].colId == 50 && state.cells[i][j].rowId != 1 && state.cells[i][j].rowId != 50 ){
+
+              }
+
+              //Logic for determining next generation for cell on the top-left corner
+              if(state.cells[i][j].rowId == 1 && state.cells[i][j].colId == 1){
+
+              } 
+
+              //Logic for determining next generation for cells on the top-right corner
+              if(state.cells[i][j].rowId == 1 && state.cells[i][j].colId == 50){
+
+              } 
+
+              //Logic for determining next generation for cells on the bottom-left corner
+              if(state.cells[i][j].colId == 1 && state.cells[i][j].rowId == 50){
+
+              } 
+
+              //Logic for determining next generation for cells on the bottom-right corner
+              if(state.cells[i][j].rowId == 50 && state.cells[i][j].colId == 50){
+
+              } 
+
+
+              //Logic for determining next generation for cells not on the edges of the grid
               if(state.cells[i][j].colId != 1 && state.cells[i][j].colId != 50 && state.cells[i][j].rowId != 1 && state.cells[i][j].rowId != 50 ){
                   //top left
                   if(state.cells[i - 1][j - 1].alive == true){

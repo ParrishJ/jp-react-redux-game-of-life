@@ -42,55 +42,504 @@ export const cellReducer = (state = initialState, action) => {
                   //console.log('j', state.cells[i][j])
                   
                   //Logic for counting neighbors
+              
+              
+              //Logic for determining next generation for cells on the top row (excluding the corners)
+              if(state.cells[i][j].rowId == 1 && state.cells[i][j].colId != 1 && state.cells[i][j].colId != 50 ){
+
+                /* Removing logic to have generations stop progogation beyond the top row - Will have generations stop at edges for now 
+                if(state.cells[i - 1][j - 1].alive == true){
+                  neighbors++;
+                } 
+                if(state.cells[i - 1][j].alive == true){
+                  neighbors++;
                   
+                }             
+                if(state.cells[i - 1][j + 1].alive == true){
+                  neighbors++;                 
+                } */
+
+                //left
+                if(state.cells[i][j - 1].alive == true){
+                  neighbors++;
+                  
+                }
+                //right
+                if(state.cells[i][j + 1].alive == true){
+                  neighbors++;
+                  
+                }
+                //bottom left
+                if(state.cells[i + 1][j - 1].alive == true){
+                  neighbors++;
+                  
+                }
+                //bottom
+                if(state.cells[i + 1][j].alive == true){
+                  neighbors++; 
+                }
+                //bottom right
+                if(state.cells[i + 1][j + 1].alive == true){
+                  neighbors++;
+                }
+
+                //Logic for toggling alive state for state.cells[i][j].alive
+                if(state.cells[i][j].alive == false && neighbors == 3){
+                  state.cellsCopy[i][j].alive = true
+                }
+                if(state.cells[i][j].alive == true && neighbors < 2){
+                  state.cellsCopy[i][j].alive = false
+                }
+                if(state.cells[i][j].alive == true && (neighbors == 2 || neighbors == 3)){
+                  state.cellsCopy[i][j].alive = true
+                }
+                if(state.cells[i][j].alive == true && neighbors > 3){
+                  state.cellsCopy[i][j].alive = false
+                }
+              }
+
+              //Logic for determining next generation for cells on the bottom row (excluding the corners)
+              if(state.cells[i][j].rowId == 50 && state.cells[i][j].colId != 1 && state.cells[i][j].colId != 50 ){
+                
+                //top left
+                if(state.cells[i - 1][j - 1].alive == true){
+                  neighbors++;
+                } 
+
+                //top
+                if(state.cells[i - 1][j].alive == true){
+                  neighbors++;
+                }          
+                
+                //top right 
+                if(state.cells[i - 1][j + 1].alive == true){
+                  neighbors++;                 
+                }
+
+                //left
+                if(state.cells[i][j - 1].alive == true){
+                  neighbors++;
+                  
+                }
+                //right
+                if(state.cells[i][j + 1].alive == true){
+                  neighbors++;
+                  
+                }
+                
+                /* Removing logic to have generations stop progogation beyond the bottom row - Will have generations stop at edges for now 
+                if(state.cells[i + 1][j - 1].alive == true){
+                  neighbors++;
+                  
+                }             
+                if(state.cells[i + 1][j].alive == true){
+                  neighbors++; 
+                }
+                if(state.cells[i + 1][j + 1].alive == true){
+                  neighbors++;
+                } */
+
+                //Logic for toggling alive state for state.cells[i][j].alive
+                if(state.cells[i][j].alive == false && neighbors == 3){
+                  state.cellsCopy[i][j].alive = true
+                }
+                if(state.cells[i][j].alive == true && neighbors < 2){
+                  state.cellsCopy[i][j].alive = false
+                }
+                if(state.cells[i][j].alive == true && (neighbors == 2 || neighbors == 3)){
+                  state.cellsCopy[i][j].alive = true
+                }
+                if(state.cells[i][j].alive == true && neighbors > 3){
+                  state.cellsCopy[i][j].alive = false
+                }
+              }
+
+              //Logic for determining next generation for cells on the left edge (excluding the corners)
+              if(state.cells[i][j].colId == 1 && state.cells[i][j].rowId != 1 && state.cells[i][j].rowId != 50 ){
+
+                /* Removing logic to have generations stop progogation beyond the left column - Will have generations stop at edges for now
+                if(state.cells[i - 1][j - 1].alive == true){
+                  neighbors++;
+                } */
+
+                // top 
+                if(state.cells[i - 1][j].alive == true){
+                  neighbors++;
+                }
+
+                // top rith
+                if(state.cells[i - 1][j + 1].alive == true){
+                  neighbors++;                 
+                }
+
+               /*  Removing logic to have generations stop progogation beyond the left column - Will have generations stop at edges for now
+                if(state.cells[i][j - 1].alive == true){
+                  neighbors++; 
+                } */
+
+                //right
+                if(state.cells[i][j + 1].alive == true){
+                  neighbors++;
+                  
+                }
+                
+               /*  Removing logic to have generations stop progogation beyond the left column - Will have generations stop at edges for now
+                if(state.cells[i + 1][j - 1].alive == true){
+                  neighbors++;   
+                } */
+                
+                //bottom 
+                if(state.cells[i + 1][j].alive == true){
+                  neighbors++; 
+                }
+
+                //bottom right
+                if(state.cells[i + 1][j + 1].alive == true){
+                  neighbors++;
+                }
+
+                //Logic for toggling alive state for state.cells[i][j].alive
+                if(state.cells[i][j].alive == false && neighbors == 3){
+                  state.cellsCopy[i][j].alive = true
+                }
+                if(state.cells[i][j].alive == true && neighbors < 2){
+                  state.cellsCopy[i][j].alive = false
+                }
+                if(state.cells[i][j].alive == true && (neighbors == 2 || neighbors == 3)){
+                  state.cellsCopy[i][j].alive = true
+                }
+                if(state.cells[i][j].alive == true && neighbors > 3){
+                  state.cellsCopy[i][j].alive = false
+                }
+              }
+
+              //Logic for determining next generation for cells on the right edge (excluding the corners)
+              if(state.cells[i][j].colId == 50 && state.cells[i][j].rowId != 1 && state.cells[i][j].rowId != 50 ){
+                
+                if(state.cells[i - 1][j - 1].alive == true){
+                  neighbors++;
+                } 
+
+                // top 
+                if(state.cells[i - 1][j].alive == true){
+                  neighbors++;
+                }
+
+               /*  Removing logic to have generations stop progogation beyond the RTCIceGatherer column - Will have generations stop at edges for now
+                if(state.cells[i - 1][j + 1].alive == true){
+                  neighbors++;                 
+                } */
+
+                //Right
+                if(state.cells[i][j - 1].alive == true){
+                  neighbors++; 
+                }
+
+                /* Removing logic to have generations stop progogation beyond the RTCIceGatherer column - Will have generations stop at edges for now
+                if(state.cells[i][j + 1].alive == true){
+                  neighbors++;  
+                } */
+                
+                //bottom left
+                if(state.cells[i + 1][j - 1].alive == true){
+                  neighbors++;   
+                }
+                
+                //bottom 
+                if(state.cells[i + 1][j].alive == true){
+                  neighbors++; 
+                }
+
+               /*  Removing logic to have generations stop progogation beyond the left column - Will have generations stop at edges for now
+                if(state.cells[i + 1][j + 1].alive == true){
+                  neighbors++;
+                } */
+
+                //Logic for toggling alive state for state.cells[i][j].alive
+                if(state.cells[i][j].alive == false && neighbors == 3){
+                  state.cellsCopy[i][j].alive = true
+                }
+                if(state.cells[i][j].alive == true && neighbors < 2){
+                  state.cellsCopy[i][j].alive = false
+                }
+                if(state.cells[i][j].alive == true && (neighbors == 2 || neighbors == 3)){
+                  state.cellsCopy[i][j].alive = true
+                }
+                if(state.cells[i][j].alive == true && neighbors > 3){
+                  state.cellsCopy[i][j].alive = false
+                }
+
+              }
+
+              //Logic for determining next generation for cell on the top-left corner
+              if(state.cells[i][j].rowId == 1 && state.cells[i][j].colId == 1){
+
+                /* Removing logic to have generations stop progogation beyond the top row - Will have generations stop at edges for now 
+                if(state.cells[i - 1][j - 1].alive == true){
+                  neighbors++;
+                } 
+                if(state.cells[i - 1][j].alive == true){
+                  neighbors++;
+                  
+                }             
+                if(state.cells[i - 1][j + 1].alive == true){
+                  neighbors++;                 
+                } */
+
+                /* Removing logic to have generations stop progogation beyond the left column - Will have generations stop at edges for now 
+                if(state.cells[i][j - 1].alive == true){
+                  neighbors++;                
+                } */
+
+                //right
+                if(state.cells[i][j + 1].alive == true){
+                  neighbors++;
+                  
+                }
+
+                /* Removing logic to have generations stop progogation beyond the left column - Will have generations stop at edges for now
+                if(state.cells[i + 1][j - 1].alive == true){
+                  neighbors++;
+                  
+                } */
+
+                //bottom
+                if(state.cells[i + 1][j].alive == true){
+                  neighbors++; 
+                }
+                //bottom right
+                if(state.cells[i + 1][j + 1].alive == true){
+                  neighbors++;
+                }
+
+                //Logic for toggling alive state for state.cells[i][j].alive
+                if(state.cells[i][j].alive == false && neighbors == 3){
+                  state.cellsCopy[i][j].alive = true
+                }
+                if(state.cells[i][j].alive == true && neighbors < 2){
+                  state.cellsCopy[i][j].alive = false
+                }
+                if(state.cells[i][j].alive == true && (neighbors == 2 || neighbors == 3)){
+                  state.cellsCopy[i][j].alive = true
+                }
+                if(state.cells[i][j].alive == true && neighbors > 3){
+                  state.cellsCopy[i][j].alive = false
+                }
+              } 
+
+              //Logic for determining next generation for cells on the top-right corner
+              if(state.cells[i][j].rowId == 1 && state.cells[i][j].colId == 50){
+
+                /* Removing logic to have generations stop progogation beyond the top row - Will have generations stop at edges for now 
+                if(state.cells[i - 1][j - 1].alive == true){
+                  neighbors++;
+                } 
+                if(state.cells[i - 1][j].alive == true){
+                  neighbors++;
+                  
+                }             
+                if(state.cells[i - 1][j + 1].alive == true){
+                  neighbors++;                 
+                } */
+
+                //left
+                if(state.cells[i][j - 1].alive == true){
+                  neighbors++;
+                  
+                }
+                
+                /* Removing logic to have generations stop progogation beyond the right column - Will have generations stop at edges for now
+                if(state.cells[i][j + 1].alive == true){
+                  neighbors++;
+                } */
+
+                //bottom left
+                if(state.cells[i + 1][j - 1].alive == true){
+                  neighbors++;   
+                }
+                //bottom
+                if(state.cells[i + 1][j].alive == true){
+                  neighbors++; 
+                }
+
+
+                /* Removing logic to have generations stop progogation beyond the right column - Will have generations stop at edges for now
+                if(state.cells[i + 1][j + 1].alive == true){
+                  neighbors++;
+                } */
+
+                //Logic for toggling alive state for state.cells[i][j].alive
+                if(state.cells[i][j].alive == false && neighbors == 3){
+                  state.cellsCopy[i][j].alive = true
+                }
+                if(state.cells[i][j].alive == true && neighbors < 2){
+                  state.cellsCopy[i][j].alive = false
+                }
+                if(state.cells[i][j].alive == true && (neighbors == 2 || neighbors == 3)){
+                  state.cellsCopy[i][j].alive = true
+                }
+                if(state.cells[i][j].alive == true && neighbors > 3){
+                  state.cellsCopy[i][j].alive = false
+                }
+              } 
+
+              //Logic for determining next generation for cells on the bottom-left corner
+              if(state.cells[i][j].colId == 1 && state.cells[i][j].rowId == 50){
+
+                /* Removing logic to have generations stop progogation beyond the left column - Will have generations stop at edges for now
+                if(state.cells[i - 1][j - 1].alive == true){
+                  neighbors++;
+                } */ 
+
+                //top
+                if(state.cells[i - 1][j].alive == true){
+                  neighbors++;
+                }          
+                
+                //top right 
+                if(state.cells[i - 1][j + 1].alive == true){
+                  neighbors++;                 
+                }
+
+                /* Removing logic to have generations stop progogation beyond the left column - Will have generations stop at edges for now
+                if(state.cells[i][j - 1].alive == true){
+                  neighbors++;
+                } */
+
+                //right
+                if(state.cells[i][j + 1].alive == true){
+                  neighbors++;
+                  
+                }
+                
+                /* Removing logic to have generations stop progogation beyond the bottom row - Will have generations stop at edges for now 
+                if(state.cells[i + 1][j - 1].alive == true){
+                  neighbors++;
+                  
+                }             
+                if(state.cells[i + 1][j].alive == true){
+                  neighbors++; 
+                }
+                if(state.cells[i + 1][j + 1].alive == true){
+                  neighbors++;
+                } */
+
+
+
+                //Logic for toggling alive state for state.cells[i][j].alive
+                if(state.cells[i][j].alive == false && neighbors == 3){
+                  state.cellsCopy[i][j].alive = true
+                }
+                if(state.cells[i][j].alive == true && neighbors < 2){
+                  state.cellsCopy[i][j].alive = false
+                }
+                if(state.cells[i][j].alive == true && (neighbors == 2 || neighbors == 3)){
+                  state.cellsCopy[i][j].alive = true
+                }
+                if(state.cells[i][j].alive == true && neighbors > 3){
+                  state.cellsCopy[i][j].alive = false
+                }
+              } 
+
+              //Logic for determining next generation for cells on the bottom-right corner
+              if(state.cells[i][j].rowId == 50 && state.cells[i][j].colId == 50){
+
+                 //top left
+                if(state.cells[i - 1][j - 1].alive == true){
+                  neighbors++;
+                } 
+
+                //top
+                if(state.cells[i - 1][j].alive == true){
+                  neighbors++;
+                }          
+                
+                /* Removing logic to have generations stop progogation beyond the right column - Will have generations stop at edges for now 
+                if(state.cells[i - 1][j + 1].alive == true){
+                  neighbors++;                 
+                } */
+
+                //left
+                if(state.cells[i][j - 1].alive == true){
+                  neighbors++;
+                  
+                }
+
+                /* Removing logic to have generations stop progogation beyond the right column - Will have generations stop at edges for now
+                if(state.cells[i][j + 1].alive == true){
+                  neighbors++;
+                } */
+                
+                /* Removing logic to have generations stop progogation beyond the bottom row - Will have generations stop at edges for now 
+                if(state.cells[i + 1][j - 1].alive == true){
+                  neighbors++;
+                  
+                }             
+                if(state.cells[i + 1][j].alive == true){
+                  neighbors++; 
+                }
+                if(state.cells[i + 1][j + 1].alive == true){
+                  neighbors++;
+                } */
+
+
+                //Logic for toggling alive state for state.cells[i][j].alive
+                if(state.cells[i][j].alive == false && neighbors == 3){
+                  state.cellsCopy[i][j].alive = true
+                }
+                if(state.cells[i][j].alive == true && neighbors < 2){
+                  state.cellsCopy[i][j].alive = false
+                }
+                if(state.cells[i][j].alive == true && (neighbors == 2 || neighbors == 3)){
+                  state.cellsCopy[i][j].alive = true
+                }
+                if(state.cells[i][j].alive == true && neighbors > 3){
+                  state.cellsCopy[i][j].alive = false
+                }
+              } 
+
+
+              //Logic for determining next generation for cells not on the edges of the grid
               if(state.cells[i][j].colId != 1 && state.cells[i][j].colId != 50 && state.cells[i][j].rowId != 1 && state.cells[i][j].rowId != 50 ){
                   //top left
                   if(state.cells[i - 1][j - 1].alive == true){
-                    /* console.log('top left', state.cells[i - 1][j - 1].cellId) */
                     neighbors++;
-                    debugger
+                    
                   }
                   //top
                   if(state.cells[i - 1][j].alive == true){
-                   /*  console.log('top', state.cells[i - 1][j].cellId) */
                     neighbors++;
-                    debugger
+                    
                   }
                   //top right
                   if(state.cells[i - 1][j + 1].alive == true){
-                    /* console.log('top right', state.cells[i - 1][j + 1].cellId) */
                     neighbors++;
-                    debugger
+                    
                   }
                   //left
                   if(state.cells[i][j - 1].alive == true){
-                    /* console.log('left', state.cells[i][j - 1].cellId) */
                     neighbors++;
-                    debugger
+                    
                   }
                   //right
                   if(state.cells[i][j + 1].alive == true){
-                    /* console.log('right', state.cells[i][j + 1].cellId) */
                     neighbors++;
-                    debugger
+                    
                   }
                   //bottom left
                   if(state.cells[i + 1][j - 1].alive == true){
-                    /* console.log('bottom left', state.cells[i + 1][j - 1].cellId) */
                     neighbors++;
-                    debugger
+                    
                   }
                   //bottom
                   if(state.cells[i + 1][j].alive == true){
-                    /* console.log('bottom', state.cells[i + 1][j].cellId) */
                     neighbors++;
-                    debugger
+                    
                   }
                   //bottom right
                   if(state.cells[i + 1][j + 1].alive == true){
-                    /* console.log('bottom-right', state.cells[i + 1][j + 1].cellId) */
                     neighbors++;
-                    debugger
+                    
                   }
                   
 

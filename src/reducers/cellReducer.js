@@ -2,7 +2,7 @@ import { TOGGLE_ALIVE, ADVANCE_GENERATION } from '../actions/cellActions'
 import { cellsFromGenerator, cellsCopyFromGenerator, cellsCopyTwo, cellGenerator } from '../components/generator'
 
 export const initialState = {
-
+    generations: 0,
     cells: cellsFromGenerator,
     cellsCopy: cellsCopyFromGenerator,
     cellsCopyTwo: cellsCopyTwo
@@ -34,7 +34,7 @@ export const cellReducer = (state = initialState, action) => {
         case ADVANCE_GENERATION:
          
           
-          
+            state.generations++;
             for(let i = 0; i < state.cells.length; i++){
                 //console.log('i', state.cells[i])
                 for(let j = 0; j < state.cells[i].length; j++){
@@ -558,12 +558,14 @@ export const cellReducer = (state = initialState, action) => {
                   }
                 }
               }
+              
             }
             
             return {
             ...state,
             cells: [...state.cellsCopy],
             cellsCopy: cellGenerator(),
+            generations: state.generations
             
             }
 

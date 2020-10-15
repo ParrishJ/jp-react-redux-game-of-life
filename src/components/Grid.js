@@ -46,8 +46,7 @@ const Grid = (props) => {
             let generationIntervalId;
 
             if(generationActivity){
-                generationIntervalId = setInterval(
-                    props.advanceGeneration, 1000);
+                generationIntervalId = setInterval(props.advanceGeneration, 1000);
                 }
                 
             
@@ -74,7 +73,7 @@ const Grid = (props) => {
                 <Col>
                     <Button onClick={(e) => {setGenerationActivity(false)}}>Stop Game</Button>
                 </Col>
-                <Col><h1>{generations}</h1></Col>
+                <Col><h1>{props.generations}</h1></Col>
            </Row>
            {props.cells.map(row => {
                return (
@@ -123,6 +122,7 @@ const Grid = (props) => {
 const mapStateToProps = (state) => {
     return {
         cells: state.cells,
+        generations: state.generations,
     }
 }
 export default connect(mapStateToProps, { toggleAlive, advanceGeneration })(Grid)

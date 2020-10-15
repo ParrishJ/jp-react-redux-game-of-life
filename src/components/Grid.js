@@ -4,44 +4,14 @@ import Col from 'react-bootstrap/Col'
 import Button from 'react-bootstrap/Button'
 import { connect } from 'react-redux'
 
-import { toggleAlive, advanceGeneration } from '../actions/cellActions'
+import { toggleAlive, advanceGeneration, clearCells } from '../actions/cellActions'
 
 
 const Grid = (props) => {
 
-    const [generations, setGenerations] = useState(0)
+    
     const [generationActivity, setGenerationActivity] = useState(false)
-   /*  const continuousGenerations = () => {
-        props.advanceGeneration();
-    }
-
-    const startGame = () => {
-        let interval = setInterval(props.advanceGeneration, 1000)
-    }
-
-    const stopGame = () => {
-        clearInterval(interval)
-    }
-
-    function logger () {
-    
-        console.log('test')
-    } */
-    
-    /* const startGame = (e) => {
-        e.preventDefault()
-        incrementer()
-        setGenerations(generations + 1);
-       
-    }
-
-    const stopGame = (cancelVar) => {
-        
-        clearInterval(cancelVar)
-    }
- */
-
-    
+   
         useEffect(() => {
             let generationIntervalId;
 
@@ -72,6 +42,9 @@ const Grid = (props) => {
                
                 <Col>
                     <Button onClick={(e) => {setGenerationActivity(false)}}>Stop Game</Button>
+                </Col>
+                <Col>
+                    <Button onClick={(e) => {props.clearCells()}}>Clear</Button>
                 </Col>
                 <Col><h1>{props.generations}</h1></Col>
            </Row>
@@ -125,4 +98,4 @@ const mapStateToProps = (state) => {
         generations: state.generations,
     }
 }
-export default connect(mapStateToProps, { toggleAlive, advanceGeneration })(Grid)
+export default connect(mapStateToProps, { toggleAlive, advanceGeneration, clearCells })(Grid)

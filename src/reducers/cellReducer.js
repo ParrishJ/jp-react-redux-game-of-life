@@ -1,4 +1,4 @@
-import { TOGGLE_ALIVE, ADVANCE_GENERATION } from '../actions/cellActions'
+import { TOGGLE_ALIVE, ADVANCE_GENERATION, CLEAR_CELLS } from '../actions/cellActions'
 import { cellsFromGenerator, cellsCopyFromGenerator, cellsCopyTwo, cellGenerator } from '../components/generator'
 
 export const initialState = {
@@ -566,7 +566,14 @@ export const cellReducer = (state = initialState, action) => {
             cells: [...state.cellsCopy],
             cellsCopy: cellGenerator(),
             generations: state.generations
-            
+            }
+
+        case CLEAR_CELLS:
+
+            return{
+              ...state,
+              cells: cellGenerator(),
+              generations: 0,
             }
 
         default:

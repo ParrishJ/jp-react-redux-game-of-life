@@ -3,8 +3,13 @@ export const ADVANCE_GENERATION = "ADVANCE_GENERATION";
 export const CLEAR_CELLS = "CLEAR_CELLS";
 
 
-export const toggleAlive = (cellId) => (dispatch) => {
+/* export const toggleAlive = (cellId) => (dispatch) => {
     dispatch({ type: TOGGLE_ALIVE, payload: cellId })
+} */
+
+//alternate approarch targeting specific cell in memory
+export const toggleAlive = (rowId, colId) => (dispatch) => {
+    dispatch({ type: TOGGLE_ALIVE, payload: {row: rowId, col: colId} })
 }
 
 export const advanceGeneration = () => (dispatch) => {

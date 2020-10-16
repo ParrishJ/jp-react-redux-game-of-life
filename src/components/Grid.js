@@ -4,26 +4,22 @@ import Col from 'react-bootstrap/Col'
 import Button from 'react-bootstrap/Button'
 import { connect } from 'react-redux'
 
-import { toggleAlive, advanceGeneration, clearCells } from '../actions/cellActions'
+import { toggleAlive, advanceGeneration, clearCells, randomizeCells } from '../actions/cellActions'
 
 
 const Grid = (props) => {
-
-    
-    const [generationActivity, setGenerationActivity] = useState(false)
+     const [generationActivity, setGenerationActivity] = useState(false)
    
-        useEffect(() => {
-            let generationIntervalId;
+    useEffect(() => {
+        let generationIntervalId;
 
-            if(generationActivity){
-                generationIntervalId = setInterval(props.advanceGeneration, 1000);
-                }
-                
+        if(generationActivity){
+            props.advanceGeneration();
+            generationIntervalId = setInterval(props.advanceGeneration, 1000);
+            }
             
-            return() => clearInterval(generationIntervalId)
-        }, [generationActivity])
-    
-    
+        return() => clearInterval(generationIntervalId)
+    }, [generationActivity])
     
     return (
         <div>
@@ -45,6 +41,9 @@ const Grid = (props) => {
                 </Col>
                 <Col>
                     <Button onClick={(e) => {props.clearCells()}}>Clear</Button>
+                </Col>
+                <Col>
+                    <Button onClick={(e) => {props.randomizeCells()}}>Randomize</Button>
                 </Col>
                 <Col><h1>{props.generations}</h1></Col>
            </Row>
@@ -106,4 +105,4 @@ const mapStateToProps = (state) => {
         generations: state.generations,
     }
 }
-export default connect(mapStateToProps, { toggleAlive, advanceGeneration, clearCells })(Grid)
+export default connect(mapStateToProps, { toggleAlive, advanceGeneration, clearCells, randomizeCells })(Grid)

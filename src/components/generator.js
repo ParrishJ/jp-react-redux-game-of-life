@@ -28,6 +28,3 @@ return cells
 }
 
 
-export const cellsFromGenerator = cellGenerator()
-export const cellsCopyFromGenerator = cellGenerator()
-export const cellsCopyTwo = cellGenerator()

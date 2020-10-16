@@ -1,6 +1,7 @@
 export const TOGGLE_ALIVE = "TOGGLE_ALIVE";
 export const ADVANCE_GENERATION = "ADVANCE_GENERATION";
 export const CLEAR_CELLS = "CLEAR_CELLS";
+export const RANDOMIZE_CELLS = "RANDOMIZE_CELLS";
 
 
 /* export const toggleAlive = (cellId) => (dispatch) => {
@@ -18,4 +19,8 @@ export const advanceGeneration = () => (dispatch) => {
 
 export const clearCells = () => (dispatch) => {
     dispatch({ type: CLEAR_CELLS })
+}
+
+export const randomizeCells = () => (dispatch) => {
+    dispatch({ type: RANDOMIZE_CELLS })
 }

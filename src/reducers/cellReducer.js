@@ -1,11 +1,11 @@
-import { TOGGLE_ALIVE, ADVANCE_GENERATION, CLEAR_CELLS } from '../actions/cellActions'
-import { cellsFromGenerator, cellsCopyFromGenerator, cellsCopyTwo, cellGenerator } from '../components/generator'
+import { TOGGLE_ALIVE, ADVANCE_GENERATION, CLEAR_CELLS, RANDOMIZE_CELLS } from '../actions/cellActions'
+import {cellGenerator } from '../components/generator'
 
 export const initialState = {
     generations: 0,
-    cells: cellsFromGenerator,
-    cellsCopy: cellsCopyFromGenerator,
-    cellsCopyTwo: cellsCopyTwo
+    cells: cellGenerator(),
+    cellsCopy: cellGenerator(),
+    
 }
 
 
@@ -578,6 +578,19 @@ export const cellReducer = (state = initialState, action) => {
               cells: cellGenerator(),
               generations: 0,
             }
+
+        case RANDOMIZE_CELLS:
+         
+          for(let i = 0; i < 400; i++){
+            //console.log(state.cellsCopy[randomCells[i].row][randomCells[i].col])
+            state.cellsCopy[Math.floor(Math.random() * (50 - 0) + 0)][Math.floor(Math.random() * (50 - 0) + 0)].alive = true
+          }
+
+        return{
+          ...state,
+          cells: [...state.cellsCopy],
+          cellsCopy: cellGenerator()
+        }
 
         default:
             return state;

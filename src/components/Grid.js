@@ -12,7 +12,13 @@ import { toggleAlive, advanceGeneration, clearCells, randomizeCells } from '../a
 const Grid = (props) => {
     const [generationActivity, setGenerationActivity] = useState(false);
 
-    const [rangeValue, setRangeValue] = useState(500);
+    //In order have the range slider speed the animation up as we move the slider to the left, we have to subtract the range from the max 
+    //value. I'm setting a max range value here so that I only need to adjust it in one place in the future.
+    const maxRangeValue = 2000
+
+    const [rangeValue, setRangeValue] = useState(maxRangeValue / 2);
+
+    
 
     const handleRangeChange = (e) => {
         setRangeValue(e.target.value);
@@ -21,14 +27,17 @@ const Grid = (props) => {
    
     useEffect(() => {
         let generationIntervalId;
+        //clearInterval(generationIntervalId)
 
         if(generationActivity){
             props.advanceGeneration();
-            generationIntervalId = setInterval(props.advanceGeneration, 500);
+            generationIntervalId = setInterval(props.advanceGeneration, (maxRangeValue - rangeValue));
             }
             
         return() => clearInterval(generationIntervalId)
-    }, [generationActivity])
+    }, [generationActivity, rangeValue])
+
+    
     
     return (
         <div>
@@ -57,7 +66,7 @@ const Grid = (props) => {
                 <Col><h1>{props.generations}</h1></Col>
            </Row>
            <Row className="justify-content-center">
-                <input className="w-50" type="range" min="0" max="1000" value={rangeValue} onChange={handleRangeChange}></input>
+                <input className="w-50" type="range" min="0" max={maxRangeValue} value={rangeValue} onChange={handleRangeChange}></input>
            </Row>
            {props.cells.map(row => {
                return (

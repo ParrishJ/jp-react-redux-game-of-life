@@ -56,9 +56,13 @@ const Grid = (props) => {
                             return (
                             
                                 <Col className="border cell" style={{height: '2vw', backgroundColor: 'rebeccapurple'}} 
-                                onClick={(e) => {
+                                /* onClick={(e) => {
                                     e.preventDefault();
                                     props.toggleAlive(cell.cellId)
+                                }} */
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    props.toggleAlive(cell.rowId, cell.colId)
                                 }}
                                 ></Col>
                                 )
@@ -67,9 +71,13 @@ const Grid = (props) => {
                             return (
                             
                                 <Col className="border cell" style={{height: '2vw'}} 
-                                onClick={(e) => {
+                                /* onClick={(e) => {
                                     e.preventDefault();
                                     props.toggleAlive(cell.cellId)
+                                }} */
+                                onClick={(e) => {
+                                    e.preventDefault();
+                                    props.toggleAlive(cell.rowId, cell.colId)
                                 }}
                             ></Col>
                                 )

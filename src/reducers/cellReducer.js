@@ -17,14 +17,17 @@ export const cellReducer = (state = initialState, action) => {
             /* for (let i = 0; i < state.cells.length; i++){
                 const targetCell = state.cells[i].find(cell => cell.cellId == action.payload);
             } */
-
+/* 
             for(let i = 0; i < state.cells.length; i++){
                 for(let j = 0; j < state.cells[i].length; j++){
                   if(state.cells[i][j].cellId == action.payload){
                     state.cells[i][j].alive = !state.cells[i][j].alive
                   }
                 }
-              }
+              } */
+
+              //alternate approach targeting single cell in memory
+              state.cells[action.payload.row - 1][action.payload.col - 1].alive = !state.cells[action.payload.row - 1][action.payload.col - 1].alive
             return {
                 ...state,
                 cells: [...state.cells],

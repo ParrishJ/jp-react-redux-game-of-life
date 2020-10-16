@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react'
+import GenerationRange from './GenerationRange'
+
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Button from 'react-bootstrap/Button'
@@ -8,14 +10,21 @@ import { toggleAlive, advanceGeneration, clearCells, randomizeCells } from '../a
 
 
 const Grid = (props) => {
-     const [generationActivity, setGenerationActivity] = useState(false)
+    const [generationActivity, setGenerationActivity] = useState(false);
+
+    const [rangeValue, setRangeValue] = useState(500);
+
+    const handleRangeChange = (e) => {
+        setRangeValue(e.target.value);
+        console.log(rangeValue)
+    }
    
     useEffect(() => {
         let generationIntervalId;
 
         if(generationActivity){
             props.advanceGeneration();
-            generationIntervalId = setInterval(props.advanceGeneration, 1000);
+            generationIntervalId = setInterval(props.advanceGeneration, 500);
             }
             
         return() => clearInterval(generationIntervalId)
@@ -46,6 +55,9 @@ const Grid = (props) => {
                     <Button onClick={(e) => {props.randomizeCells()}}>Randomize</Button>
                 </Col>
                 <Col><h1>{props.generations}</h1></Col>
+           </Row>
+           <Row className="justify-content-center">
+                <input className="w-50" type="range" min="0" max="1000" value={rangeValue} onChange={handleRangeChange}></input>
            </Row>
            {props.cells.map(row => {
                return (

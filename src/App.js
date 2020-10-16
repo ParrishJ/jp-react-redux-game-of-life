@@ -4,12 +4,13 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import Grid from './components/Grid'
+import ControlPanel from './components/ControlPanel'
 import thunk from 'redux-thunk';
 
 function App() {
   return (
     <div className="App">
-      
+        <ControlPanel />
         <Grid />
      
     </div>

@@ -9,9 +9,8 @@ import { toggleAlive } from '../actions/cellActions'
 
 const Grid = (props) => {
     
-
     return (
-        <div>
+        <div className="grid">
            {props.cells.map(row => {
                return (
                    <Row noGutters={true}>
@@ -40,7 +39,6 @@ const Grid = (props) => {
                    </Row>
                )
            })}
-
         </div>
     )
 }

@@ -20,7 +20,7 @@ const Grid = (props) => {
                                 <Col className="border cell" style={{height: '2vw', backgroundColor: 'rebeccapurple'}} 
                                 
                                     onClick={() => {
-                                        props.toggleAlive(cell.rowId, cell.colId)
+                                        props.cellsEnabled && props.toggleAlive(cell.rowId, cell.colId)
                                     }}
                                 ></Col>
                                 )
@@ -29,9 +29,7 @@ const Grid = (props) => {
                             return (
                             
                                 <Col className="border cell" style={{height: '2vw'}} 
-                                    onClick={() => {
-                                        props.toggleAlive(cell.rowId, cell.colId)
-                                    }}>
+                                    onClick={() => { props.cellsEnabled && props.toggleAlive(cell.rowId, cell.colId)}}>
                                 </Col>
                                 )
                         }}
@@ -46,6 +44,7 @@ const Grid = (props) => {
 const mapStateToProps = (state) => {
     return {
         cells: state.cells,
+        cellsEnabled: state.cellsEnabled
     }
 }
 export default connect(mapStateToProps, { toggleAlive })(Grid)

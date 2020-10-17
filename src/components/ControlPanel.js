@@ -6,7 +6,7 @@ import Col from 'react-bootstrap/Col'
 import Button from 'react-bootstrap/Button'
 import { connect } from 'react-redux'
 
-import { advanceGeneration, clearCells, randomizeCells } from '../actions/cellActions'
+import { advanceGeneration, clearCells, randomizeCells, toggleDisableCells } from '../actions/cellActions'
 
 
 const ControlPanel = (props) => {
@@ -33,10 +33,11 @@ const ControlPanel = (props) => {
        
         if(generationActivity){
             props.advanceGeneration();
+            props.toggleDisableCells(false);
             generationIntervalId = setInterval(props.advanceGeneration, (maxRangeValue - rangeValue));
             }
             
-        return() => clearInterval(generationIntervalId)
+        return() => {clearInterval(generationIntervalId); props.toggleDisableCells(true)}
     }, [generationActivity, rangeValue])
 
     
@@ -78,4 +79,4 @@ const mapStateToProps = (state) => {
         generations: state.generations,
     }
 }
-export default connect(mapStateToProps, { advanceGeneration, clearCells, randomizeCells })(ControlPanel)
+export default connect(mapStateToProps, { advanceGeneration, clearCells, randomizeCells, toggleDisableCells })(ControlPanel)

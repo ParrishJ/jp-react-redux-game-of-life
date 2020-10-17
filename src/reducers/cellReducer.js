@@ -1,10 +1,11 @@
-import { TOGGLE_ALIVE, ADVANCE_GENERATION, CLEAR_CELLS, RANDOMIZE_CELLS } from '../actions/cellActions'
+import { TOGGLE_ALIVE, ADVANCE_GENERATION, CLEAR_CELLS, RANDOMIZE_CELLS, DISABLE_CELLS } from '../actions/cellActions'
 import {cellGenerator } from '../components/generator'
 
 export const initialState = {
     generations: 0,
     cells: cellGenerator(),
     cellsCopy: cellGenerator(),
+    cellsEnabled: true, 
     
 }
 
@@ -589,7 +590,15 @@ export const cellReducer = (state = initialState, action) => {
         return{
           ...state,
           cells: [...state.cellsCopy],
-          cellsCopy: cellGenerator()
+          cellsCopy: cellGenerator(),
+          
+        }
+
+        case DISABLE_CELLS:
+
+        return{
+          ...state,
+          cellsEnabled: action.payload,
         }
 
         default:

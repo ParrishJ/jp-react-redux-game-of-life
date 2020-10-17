@@ -1,0 +1,18 @@
+.grid{
+    width: 40%;
+}
+
+.grid:after {
+    content: "";
+    display: block;
+    /* padding-bottom: 100%; */
+  }
+
+
+
+.cell:after {
+    content: "";
+    display: block;
+    padding-bottom: 100%;
+  }
+

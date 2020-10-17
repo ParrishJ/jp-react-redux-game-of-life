@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 
-
+import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Button from 'react-bootstrap/Button'
@@ -43,7 +43,7 @@ const ControlPanel = (props) => {
     
     
     return (
-        <div>
+        <Container>
             <Row>
                 
                 <Col>
@@ -70,7 +70,7 @@ const ControlPanel = (props) => {
            <Row className="justify-content-center">
                 <input className="w-50" type="range" min="0" max={maxRangeValue} value={rangeValue} onChange={handleRangeChange}></input>
            </Row>
-        </div>
+        </Container>
     )
 }
 

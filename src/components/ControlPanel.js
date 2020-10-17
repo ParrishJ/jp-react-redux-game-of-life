@@ -12,11 +12,16 @@ import { advanceGeneration, clearCells, randomizeCells } from '../actions/cellAc
 const ControlPanel = (props) => {
     const [generationActivity, setGenerationActivity] = useState(false);
 
+
     // In order have the range slider speed the animation up as we move the slider to the left, we have to subtract the range from the max 
     // value. I'm setting a max range value here so that I only need to adjust it in one place in the future.
     const maxRangeValue = 2000
 
     const [rangeValue, setRangeValue] = useState(maxRangeValue / 2);
+
+    const [buttonsWhileRunning, setButtonsWhileRunning] = useState(false)
+
+    const [stopButton, setStopButton] = useState(true)
 
     const handleRangeChange = (e) => {
         setRangeValue(e.target.value);
@@ -43,24 +48,21 @@ const ControlPanel = (props) => {
                 <Col>
 
                     {/* Why do we need parents in onClicks?????????????????????????????????????????????????????? */}
-                    <Button onClick={() => {
-                       
-                        props.advanceGeneration();
-                    }}>Advance Generation</Button>
+                    <Button onClick={() => { props.advanceGeneration()}} disabled={buttonsWhileRunning}>Advance Generation</Button>
                 </Col>
                 
                 <Col>
-                    <Button onClick={() => {setGenerationActivity(true)}}>Start Game</Button>
+                    <Button onClick={() => {setGenerationActivity(true); setButtonsWhileRunning(true); setStopButton(false)}} disabled={buttonsWhileRunning}>Start Game</Button>
                 </Col>
                
                 <Col>
-                    <Button onClick={() => {setGenerationActivity(false)}}>Stop Game</Button>
+                    <Button onClick={() => {setGenerationActivity(false); setButtonsWhileRunning(false); setStopButton(true)}} disabled={stopButton}>Stop Game</Button>
                 </Col>
                 <Col>
-                    <Button onClick={(e) => {props.clearCells()}}>Clear</Button>
+                    <Button onClick={(e) => {props.clearCells()}} disabled={buttonsWhileRunning}>Clear</Button>
                 </Col>
                 <Col>
-                    <Button onClick={(e) => {props.randomizeCells()}}>Randomize</Button>
+                    <Button onClick={(e) => {props.randomizeCells()}} disabled={buttonsWhileRunning}>Randomize</Button>
                 </Col>
                 <Col><h1>{props.generations}</h1></Col>
            </Row>

@@ -9,7 +9,7 @@ import { connect } from 'react-redux'
 import { advanceGeneration, clearCells, randomizeCells, toggleDisableCells } from '../actions/cellActions'
 
 
-const ControlPanel = (props) => {
+const ControlPanel = ({advanceGeneration, toggleDisableCells, clearCells, generations, randomizeCells }) => {
     const [generationActivity, setGenerationActivity] = useState(false);
 
 
@@ -32,13 +32,13 @@ const ControlPanel = (props) => {
         let generationIntervalId;
        
         if(generationActivity){
-            props.advanceGeneration();
-            props.toggleDisableCells(false);
-            generationIntervalId = setInterval(props.advanceGeneration, (maxRangeValue - rangeValue));
+            advanceGeneration();
+            toggleDisableCells(false);
+            generationIntervalId = setInterval(advanceGeneration, (maxRangeValue - rangeValue));
             }
             
-        return() => {clearInterval(generationIntervalId); props.toggleDisableCells(true)}
-    }, [generationActivity, rangeValue])
+        return() => {clearInterval(generationIntervalId); toggleDisableCells(true)}
+    }, [generationActivity, rangeValue, advanceGeneration,toggleDisableCells])
 
     
     
@@ -49,7 +49,7 @@ const ControlPanel = (props) => {
                 <Col>
 
                     {/* Why do we need parents in onClicks?????????????????????????????????????????????????????? */}
-                    <Button onClick={() => { props.advanceGeneration()}} disabled={buttonsWhileRunning}>Advance Generation</Button>
+                    <Button onClick={() => { advanceGeneration()}} disabled={buttonsWhileRunning}>Advance Generation</Button>
                 </Col>
                 
                 <Col>
@@ -60,12 +60,12 @@ const ControlPanel = (props) => {
                     <Button onClick={() => {setGenerationActivity(false); setButtonsWhileRunning(false); setStopButton(true)}} disabled={stopButton}>Stop Game</Button>
                 </Col>
                 <Col>
-                    <Button onClick={(e) => {props.clearCells()}} disabled={buttonsWhileRunning}>Clear</Button>
+                    <Button onClick={(e) => {clearCells()}} disabled={buttonsWhileRunning}>Clear</Button>
                 </Col>
                 <Col>
-                    <Button onClick={(e) => {props.randomizeCells()}} disabled={buttonsWhileRunning}>Randomize</Button>
+                    <Button onClick={(e) => {randomizeCells()}} disabled={buttonsWhileRunning}>Randomize</Button>
                 </Col>
-                <Col><h1>{props.generations}</h1></Col>
+                <Col><h1>{generations}</h1></Col>
            </Row>
            <Row className="justify-content-center">
                 <input className="w-50" type="range" min="0" max={maxRangeValue} value={rangeValue} onChange={handleRangeChange}></input>

@@ -17,7 +17,7 @@ const Grid = (props) => {
                return (
                    <Row noGutters={true}>
                        {row.map(cell => {
-                           {if(cell.alive == true){
+                           if(cell.alive === true){
                             return (
                                 <Col className="border cell" style={{/* height: '2vw', */ backgroundColor: 'rebeccapurple'}} 
                                 
@@ -34,7 +34,7 @@ const Grid = (props) => {
                                     onClick={() => { props.cellsEnabled && props.toggleAlive(cell.rowId, cell.colId)}}>
                                 </Col>
                                 )
-                        }}
+                        }
                        })}
                    </Row>
                )

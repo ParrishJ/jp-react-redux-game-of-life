@@ -1,5 +1,8 @@
 .App {
   text-align: center;
+  /* background-image: url(./images/abstract-biologica-entity.jpg); */
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .App-logo {

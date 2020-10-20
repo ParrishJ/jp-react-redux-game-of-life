@@ -5,8 +5,10 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Button from 'react-bootstrap/Button'
 import Modal from 'react-bootstrap/Modal'
+import Image from 'react-bootstrap/Image'
 import ListGroup from 'react-bootstrap/ListGroup'
 
+import headshot from '../images/Jared-Parrish-Headshot.jpg'
 import './controlPanel.css'
 
 import { connect } from 'react-redux'
@@ -98,6 +100,7 @@ const ControlPanel = ({advanceGeneration, toggleDisableCells, clearCells, genera
                 </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
+                    
                     <p>Conway’s Game of Life is a classic computer science simulation that employs 
                         a few simple rules to create cellular automata that “live”, “die”, and create 
                         some stunning patterns throughout their collective lifecycles.</p>
@@ -128,7 +131,7 @@ const ControlPanel = ({advanceGeneration, toggleDisableCells, clearCells, genera
                     
                 </Modal.Body>
             </Modal>
-            <Modal
+           <Modal
             show={showMeModal}
             onHide={() => setShowMeModal(false)}
             dialogClassName="wideModal"
@@ -140,15 +143,18 @@ const ControlPanel = ({advanceGeneration, toggleDisableCells, clearCells, genera
                 </Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <p>
-                        Ipsum molestiae natus adipisci modi eligendi? Debitis amet quae unde
-                        commodi aspernatur enim, consectetur. Cumque deleniti temporibus
-                        ipsam atque a dolores quisquam quisquam adipisci possimus
-                        laboriosam. Quibusdam facilis doloribus debitis! Sit quasi quod
-                        accusamus eos quod. Ab quos consequuntur eaque quo rem! Mollitia
-                        reiciendis porro quo magni incidunt dolore amet atque facilis ipsum
-                        deleniti rem!
-                    </p>
+                <Container fluid>
+                <Row className="justify-content-md-center align-items-center my-5 flex-column-reverse flex-md-row">
+                    <Col className="my-5 mx-auto mx-md-4 my-md-0" xs={10} sm={5} >
+                        <h1>Hello</h1>
+                        <h2 class="text-info">I'm currently looking for work!</h2>
+                        <p class="text-sm-left">My name is Jared. I am a web developer based out of Eugene, Oregon. I am passionate about implementing thoughtful and impactful web design using elegant coding strategies and modern web technologies.</p>
+                    </Col>
+                    <Col className="my-4 mx-auto mx-md-4" xs={10} sm={5} lg={4}>
+                        <Image id="jared-parrish-headshot" src={headshot} alt="Image of me, Jared Parrish" roundedCircle />
+                    </Col>  
+                </Row>
+                </Container>
                 </Modal.Body>
             </Modal>
         </Container>

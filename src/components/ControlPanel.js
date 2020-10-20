@@ -4,6 +4,10 @@ import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Button from 'react-bootstrap/Button'
+import Modal from 'react-bootstrap/Modal'
+
+import './controlPanel.css'
+
 import { connect } from 'react-redux'
 
 import { advanceGeneration, clearCells, randomizeCells, toggleDisableCells } from '../actions/cellActions'
@@ -23,6 +27,10 @@ const ControlPanel = ({advanceGeneration, toggleDisableCells, clearCells, genera
 
     const [stopButton, setStopButton] = useState(true)
 
+    const [showGolModal, setShowGolModal] = useState(false)
+
+    const [showMeModal, setShowMeModal] = useState(false)
+
     const handleRangeChange = (e) => {
         setRangeValue(e.target.value);
         
@@ -38,12 +46,12 @@ const ControlPanel = ({advanceGeneration, toggleDisableCells, clearCells, genera
             }
             
         return() => {clearInterval(generationIntervalId); toggleDisableCells(true)}
-    }, [generationActivity, rangeValue, advanceGeneration,toggleDisableCells])
+    }, [generationActivity, rangeValue, advanceGeneration, toggleDisableCells])
 
     
     
     return (
-        <Container>
+        <Container fluid>
             <Row>
                 
                 <Col>
@@ -65,11 +73,64 @@ const ControlPanel = ({advanceGeneration, toggleDisableCells, clearCells, genera
                 <Col>
                     <Button onClick={(e) => {randomizeCells()}} disabled={buttonsWhileRunning}>Randomize</Button>
                 </Col>
+                   
+                <Col>
+                    <Button onClick={() => {setShowGolModal(true)}}>About Conway's Game of Life</Button>
+                </Col>
+                <Col>
+                    <Button onClick={() => {setShowMeModal(true)}}>About me</Button>
+                </Col>
                 <Col><h1>{generations}</h1></Col>
            </Row>
            <Row className="justify-content-center">
                 <input className="w-50" type="range" min="0" max={maxRangeValue} value={rangeValue} onChange={handleRangeChange}></input>
            </Row>
+           <Modal
+            show={showGolModal}
+            onHide={() => setShowGolModal(false)}
+            dialogClassName="wideModal"
+            aria-labelledby="about-conways-game-of-life-title"
+            >
+                <Modal.Header closeButton>
+                <Modal.Title id="example-custom-modal-styling-title">
+                    About Conway's Game of Life
+                </Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <p>
+                        Ipsum molestiae natus adipisci modi eligendi? Debitis amet quae unde
+                        commodi aspernatur enim, consectetur. Cumque deleniti temporibus
+                        ipsam atque a dolores quisquam quisquam adipisci possimus
+                        laboriosam. Quibusdam facilis doloribus debitis! Sit quasi quod
+                        accusamus eos quod. Ab quos consequuntur eaque quo rem! Mollitia
+                        reiciendis porro quo magni incidunt dolore amet atque facilis ipsum
+                        deleniti rem!
+                    </p>
+                </Modal.Body>
+            </Modal>
+            <Modal
+            show={showMeModal}
+            onHide={() => setShowMeModal(false)}
+            dialogClassName="wideModal"
+            aria-labelledby="about-me-title"
+            >
+                <Modal.Header closeButton>
+                <Modal.Title id="example-custom-modal-styling-title">
+                    About Me
+                </Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <p>
+                        Ipsum molestiae natus adipisci modi eligendi? Debitis amet quae unde
+                        commodi aspernatur enim, consectetur. Cumque deleniti temporibus
+                        ipsam atque a dolores quisquam quisquam adipisci possimus
+                        laboriosam. Quibusdam facilis doloribus debitis! Sit quasi quod
+                        accusamus eos quod. Ab quos consequuntur eaque quo rem! Mollitia
+                        reiciendis porro quo magni incidunt dolore amet atque facilis ipsum
+                        deleniti rem!
+                    </p>
+                </Modal.Body>
+            </Modal>
         </Container>
     )
 }

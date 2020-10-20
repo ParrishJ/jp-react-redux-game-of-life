@@ -10,8 +10,9 @@ import ControlPanel from './components/ControlPanel'
 function App() {
   return (
     <div className="App">
-        <ControlPanel />
         <Grid />
+        <ControlPanel />
+        
     </div>
   );
 }

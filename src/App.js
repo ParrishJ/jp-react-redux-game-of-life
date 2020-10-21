@@ -4,15 +4,22 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import Grid from './components/Grid'
+import Col from 'react-bootstrap/Col'
 import ControlPanel from './components/ControlPanel'
 
+import Row from 'react-bootstrap/Row'
 
 function App() {
   return (
-    <div className="App">
-        <Grid />
-        <ControlPanel />
-        
+    <div className="App" id="app">
+      <Row className="m-0 h-100">
+        <Col className="p-5" xs={5}>
+          <ControlPanel />
+        </Col>
+        <Col xs={7}>
+          <Grid />
+        </Col>
+      </Row>
     </div>
   );
 }

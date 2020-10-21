@@ -12,14 +12,14 @@ import './grid.css'
 const Grid = (props) => {
     
     return (
-        <Container className="grid mx-auto my-5 p-0 border">
+        <Container className="grid" fluid>
            {props.cells.map(row => {
                return (
                    <Row noGutters={true}>
                        {row.map(cell => {
                            if(cell.alive === true){
                             return (
-                                <Col className="border cell" style={{/* height: '2vw', */ backgroundColor: 'rebeccapurple'}} 
+                                <Col className="border cell" style={{/* height: '2vw', */ backgroundColor: 'white'}} 
                                 
                                     onClick={() => {
                                         props.cellsEnabled && props.toggleAlive(cell.rowId, cell.colId)

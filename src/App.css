@@ -1,11 +1,11 @@
 .App {
-  text-align: center;
-  /* background-image: url(./images/abstract-biologica-entity.jpg); */
-  background-size: cover;
-  background-repeat: no-repeat;
+  /* text-align: center; */
+  background-color: black;
+  height: 100vh;
+ 
 }
 
-.App-logo {
+/* .App-logo {
   height: 40vmin;
   pointer-events: none;
 }
@@ -38,4 +38,4 @@
   to {
     transform: rotate(360deg);
   }
-}
+} */

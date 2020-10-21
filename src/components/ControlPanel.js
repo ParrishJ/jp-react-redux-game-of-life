@@ -4,6 +4,7 @@ import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Button from 'react-bootstrap/Button'
+import ButtonGroup from 'react-bootstrap/ButtonGroup'
 import Modal from 'react-bootstrap/Modal'
 import Image from 'react-bootstrap/Image'
 import ListGroup from 'react-bootstrap/ListGroup'
@@ -15,7 +16,7 @@ import { connect } from 'react-redux'
 
 import { advanceGeneration, clearCells, randomizeCells, toggleDisableCells } from '../actions/cellActions'
 
-
+//destructured props instead of just passing props here
 const ControlPanel = ({advanceGeneration, toggleDisableCells, clearCells, generations, randomizeCells }) => {
     const [generationActivity, setGenerationActivity] = useState(false);
 
@@ -54,40 +55,70 @@ const ControlPanel = ({advanceGeneration, toggleDisableCells, clearCells, genera
     
     
     return (
-        <Container fluid>
-            <Row>
+        <>
+        
+        <Container className="controlPanel d-flex flex-column justify-content-around h-100" fluid>
+            <div className="">
+                <h1 className="siteTitle">Conway's <br />Game of Life</h1>
+            </div>
+            {/* <Col className="controlsContainer d-flex flex-column" xs={2}>
                 
-                <Col>
+                <div>
 
-                    {/* Why do we need parents in onClicks?????????????????????????????????????????????????????? */}
-                    <Button onClick={() => { advanceGeneration()}} disabled={buttonsWhileRunning}>Advance Generation</Button>
-                </Col>
+                    
+                    <Button variant="outline-light" onClick={() => { advanceGeneration()}} disabled={buttonsWhileRunning}>Advance Generation</Button>
+                </div>
                 
-                <Col>
-                    <Button onClick={() => {setGenerationActivity(true); setButtonsWhileRunning(true); setStopButton(false)}} disabled={buttonsWhileRunning}>Start Game</Button>
-                </Col>
+                <div>
+                    <Button variant="outline-light" onClick={() => {setGenerationActivity(true); setButtonsWhileRunning(true); setStopButton(false)}} disabled={buttonsWhileRunning}>Start Game</Button>
+                </div>
                
-                <Col>
-                    <Button onClick={() => {setGenerationActivity(false); setButtonsWhileRunning(false); setStopButton(true)}} disabled={stopButton}>Stop Game</Button>
-                </Col>
-                <Col>
-                    <Button onClick={(e) => {clearCells()}} disabled={buttonsWhileRunning}>Clear</Button>
-                </Col>
-                <Col>
-                    <Button onClick={(e) => {randomizeCells()}} disabled={buttonsWhileRunning}>Randomize</Button>
-                </Col>
+                <div>
+                    <Button variant="outline-light" onClick={() => {setGenerationActivity(false); setButtonsWhileRunning(false); setStopButton(true)}} disabled={stopButton}>Stop Game</Button>
+                </div>
+                <div>
+                    <Button variant="outline-light" onClick={(e) => {clearCells()}} disabled={buttonsWhileRunning}>Clear</Button>
+                </div>
+                <div>
+                    <Button variant="outline-light" onClick={(e) => {randomizeCells()}} disabled={buttonsWhileRunning}>Randomize</Button>
+                </div>
                    
-                <Col>
-                    <Button onClick={() => {setShowGolModal(true)}}>About Conway's Game of Life</Button>
-                </Col>
-                <Col>
-                    <Button onClick={() => {setShowMeModal(true)}}>About me</Button>
-                </Col>
-                <Col><h1>{generations}</h1></Col>
-           </Row>
-           <Row className="justify-content-center">
-                <input className="w-50" type="range" min="0" max={maxRangeValue} value={rangeValue} onChange={handleRangeChange}></input>
-           </Row>
+                <div>
+                    <Button variant="outline-light" onClick={() => {setShowGolModal(true)}}>About Conway's Game of Life</Button>
+                </div>
+                <div>
+                    <Button  variant="outline-light" onClick={() => {setShowMeModal(true)}}>About me</Button>
+                </div>
+                
+
+                
+                
+
+           </Col> */}
+           <Col>
+           <div className="generations my-5"><h1>Generations: {generations}</h1></div>
+                <ButtonGroup vertical>
+                        {/* Why do we need parents in onClicks?????????????????????????????????????????????????????? */}
+                        <Button variant="outline-success" onClick={() => {setGenerationActivity(true); setButtonsWhileRunning(true); setStopButton(false)}} disabled={buttonsWhileRunning}>Start Game</Button>
+                        <Button variant="outline-light" onClick={(e) => {randomizeCells()}} disabled={buttonsWhileRunning}>Randomize</Button>
+                        <Button variant="outline-light" onClick={() => { advanceGeneration()}} disabled={buttonsWhileRunning}>Advance Generation</Button>
+                        <Button variant="outline-danger" onClick={() => {setGenerationActivity(false); setButtonsWhileRunning(false); setStopButton(true)}} disabled={stopButton}>Stop Game</Button>
+                        <Button variant="outline-danger" onClick={(e) => {clearCells()}} disabled={buttonsWhileRunning}>Clear</Button>
+                </ButtonGroup>
+                <div className="justify-content-center mt-4">
+                    <p style={{color: 'white', marginBottom: '0.5em'}}>Adujst Speed of Game</p>
+                    <input className="" type="range" min="0" max={maxRangeValue} value={rangeValue} onChange={handleRangeChange}></input>
+                </div>
+           </Col>
+
+           <Col className="mt-4">
+                <ButtonGroup>
+                    <Button variant="outline-info" onClick={() => {setShowGolModal(true)}}>About Conway's Game of Life</Button>
+                    <Button variant="outline-info" onClick={() => {setShowMeModal(true)}}>About me</Button>
+                </ButtonGroup>
+           </Col>
+          
+           </Container>
            <Modal
             show={showGolModal}
             onHide={() => setShowGolModal(false)}
@@ -125,8 +156,8 @@ const ControlPanel = ({advanceGeneration, toggleDisableCells, clearCells, genera
                         feature of Conway’s game of life is that it demonstrates that patterns of immense complexity can 
                         spring forth from a few simple constraints.</p>
                         <blockquote class="blockquote text-center">
-                            <p class="mb-0 mt-4">Background information on the Conway's Game of Life Sourced By:</p>
-                            <footer class="blockquote-footer">cs.standord.edu, <a href="https://cs.stanford.edu/people/eroberts/courses/soco/projects/2001-02/cellular-automata/beginning/howtoplay.html"><cite title="Source Title">The Game of Life</cite></a></footer>
+                            <p class="mb-0 mt-4">Background information on Conway's Game of Life sourced from:</p>
+                            <footer class="blockquote-footer">cs.standord.edu, <a href="https://cs.stanford.edu/people/eroberts/courses/soco/projects/2001-02/cellular-automata/beginning/howtoplay.html" ><cite title="Source Title">The Game of Life</cite></a></footer>
                         </blockquote>
                     
                 </Modal.Body>
@@ -147,8 +178,8 @@ const ControlPanel = ({advanceGeneration, toggleDisableCells, clearCells, genera
                 <Row className="justify-content-md-center align-items-center my-5 flex-column-reverse flex-md-row">
                     <Col className="my-5 mx-auto mx-md-4 my-md-0" xs={10} sm={5} >
                         <h1>Hello</h1>
-                        <h2 class="text-info">I'm currently looking for work!</h2>
                         <p class="text-sm-left">My name is Jared. I am a web developer based out of Eugene, Oregon. I am passionate about implementing thoughtful and impactful web design using elegant coding strategies and modern web technologies.</p>
+                        <p>Find out more about me and my work at <a href="https://www.jaredparrish.com/">JaredParrish.com</a></p>
                     </Col>
                     <Col className="my-4 mx-auto mx-md-4" xs={10} sm={5} lg={4}>
                         <Image id="jared-parrish-headshot" src={headshot} alt="Image of me, Jared Parrish" roundedCircle />
@@ -157,7 +188,7 @@ const ControlPanel = ({advanceGeneration, toggleDisableCells, clearCells, genera
                 </Container>
                 </Modal.Body>
             </Modal>
-        </Container>
+        </>
     )
 }
 

@@ -157,7 +157,7 @@ const ControlPanel = ({advanceGeneration, toggleDisableCells, clearCells, genera
                         spring forth from a few simple constraints.</p>
                         <blockquote class="blockquote text-center">
                             <p class="mb-0 mt-4">Background information on Conway's Game of Life sourced from:</p>
-                            <footer class="blockquote-footer">cs.standord.edu, <a href="https://cs.stanford.edu/people/eroberts/courses/soco/projects/2001-02/cellular-automata/beginning/howtoplay.html" target="_blank"><cite title="Source Title">The Game of Life</cite></a></footer>
+                            <footer class="blockquote-footer">cs.standord.edu, <a href="https://cs.stanford.edu/people/eroberts/courses/soco/projects/2001-02/cellular-automata/beginning/howtoplay.html" ><cite title="Source Title">The Game of Life</cite></a></footer>
                         </blockquote>
                     
                 </Modal.Body>
@@ -179,7 +179,7 @@ const ControlPanel = ({advanceGeneration, toggleDisableCells, clearCells, genera
                     <Col className="my-5 mx-auto mx-md-4 my-md-0" xs={10} sm={5} >
                         <h1>Hello</h1>
                         <p class="text-sm-left">My name is Jared. I am a web developer based out of Eugene, Oregon. I am passionate about implementing thoughtful and impactful web design using elegant coding strategies and modern web technologies.</p>
-                        <p>Find out more about me and my work at <a href="https://www.jaredparrish.com/" target="_blank">JaredParrish.com</a></p>
+                        <p>Find out more about me and my work at <a href="https://www.jaredparrish.com/">JaredParrish.com</a></p>
                     </Col>
                     <Col className="my-4 mx-auto mx-md-4" xs={10} sm={5} lg={4}>
                         <Image id="jared-parrish-headshot" src={headshot} alt="Image of me, Jared Parrish" roundedCircle />

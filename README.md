@@ -1,4 +1,4 @@
-# Jared Parrish’s React/Redux Implementation of\
+# Jared Parrish’s React/Redux Implementation of <br />
 # Conway’s Game of Life :microbe:
 
 Conway’s Game of Life is a classic computer science simulation that employs a few simple rules to create cellular automata that “live”, “die”, and create some stunning patterns throughout their collective lifecycles.

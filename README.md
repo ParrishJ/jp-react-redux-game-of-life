@@ -53,5 +53,8 @@ Probably the most challenging element of this project was dealing with how JavaS
 
 - [ ] Implement functionality that would allow the user to change the shape and / or color of the cells. 
 
-- [ ] Implement functionality that would allow the user to start the simulation off with some of the more interesting arrangements of cells that have been discovered in The Game of Life
+- [ ] Implement functionality that would allow the user to start the simulation off with some of the more interesting arrangements of cells that have been discovered in The Game of Life.
+
+- [ ] Implement functionality that would allow for cells at the edge of the board to interact with cells on the opposite side of the board, allowing for patterns to persist for longer instead of stopping when they reach the edge of the board. 
+ 
 

@@ -5,6 +5,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import Grid from './components/Grid'
 import Col from 'react-bootstrap/Col'
+import Container from 'react-bootstrap/Container'
+
 import ControlPanel from './components/ControlPanel'
 
 import Row from 'react-bootstrap/Row'
@@ -12,14 +14,16 @@ import Row from 'react-bootstrap/Row'
 function App() {
   return (
     <div className="App" id="app">
+      <Container fluid>
       <Row className="m-0 h-100">
-        <Col className="p-5" xs={5}>
+        <Col className="p-5" xs={6}>
           <ControlPanel />
         </Col>
-        <Col xs={7}>
+        <Col className="p-5" xs={6}>
           <Grid />
         </Col>
       </Row>
+      </Container>
     </div>
   );
 }

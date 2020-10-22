@@ -25,3 +25,33 @@ Once the simulation is initialized, the cells then move on to successive generat
 This simple set of rules allows the cells to either multiply or be reduced from generation to generation, sometimes forming some astounding patterns along the way. Perhaps the most interesting feature of Conway’s game of life is that it demonstrates that patterns of immense complexity can spring forth from a few simple constraints.
 
 Background information on Conway's Game of Life sourced from: cs.standord.edu, *[The Game of Life](https://cs.stanford.edu/people/eroberts/courses/soco/projects/2001-02/cellular-automata/beginning/howtoplay.html)*
+
+## My Implementation
+
+My implementation uses React to map through nested arrays that contain objects representing each cell in the game. Each cell object has the following shape:
+
+```
+{
+    alive: bool,
+    clickable: bool,
+    rowId: int,
+    colId: int,
+    cellId: int,
+}
+```
+Because I’m using Redux, the state of the application is kept in a reducer. The state of the application holds the number of generations that have elapsed, the nested array of cells, a copy of that nested array to keep track of changes to the cell’s ‘alive’ state, and a boolean that keeps track of whether or not the cells can be altered. 
+
+The logic for the changes to the cell’s alive state that occurs between generations also takes place in the reducer.
+
+## Difficulties With My Implementation
+
+Probably the most challenging element of this project was dealing with how JavaScript handles mutability of arrays and objects. Because JavaScript copies arrays by reference only, I ran into issues when I needed a copy of the cells array in the reducer to keep track of the generational changes of the cells. I was able to produce a copy of the array by using a generator function that produced an array of cells in the same shape as the original array. 
+
+## Future Features
+
+- [ ] Implement mobile styling for the game
+
+- [ ] Implement functionality that would allow the user to change the shape and / or color of the cells. 
+
+- [ ] Implement functionality that would allow the user to start the simulation off with some of the more interesting arrangements of cells that have been discovered in The Game of Life
+

@@ -569,7 +569,8 @@ export const cellReducer = (state = initialState, action) => {
             }
 
         case CLEAR_CELLS:
-
+            
+            //Use the cellGenerator function to create a new copy of the nested cells array, with all cell's alive state set to false
             return{
               ...state,
               cells: cellGenerator(),
@@ -577,9 +578,8 @@ export const cellReducer = (state = initialState, action) => {
             }
 
         case RANDOMIZE_CELLS:
-         
+          //Selects 400 random cells on the board and changes their alive state to true
           for(let i = 0; i < 400; i++){
-            //console.log(state.cellsCopy[randomCells[i].row][randomCells[i].col])
             state.cellsCopy[Math.floor(Math.random() * (50 - 0) + 0)][Math.floor(Math.random() * (50 - 0) + 0)].alive = true
           }
 
@@ -591,7 +591,7 @@ export const cellReducer = (state = initialState, action) => {
         }
 
         case DISABLE_CELLS:
-
+        //Disables the ability to click on and change the alive state of cells while simulation is running
         return{
           ...state,
           cellsEnabled: action.payload,

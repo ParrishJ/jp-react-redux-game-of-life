@@ -5,10 +5,6 @@ export const RANDOMIZE_CELLS = "RANDOMIZE_CELLS";
 export const DISABLE_CELLS = "DISABLE_CELLS";
 
 
-/* export const toggleAlive = (cellId) => (dispatch) => {
-    dispatch({ type: TOGGLE_ALIVE, payload: cellId })
-} */
-
 //alternate approarch targeting specific cell in memory
 export const toggleAlive = (rowId, colId) => (dispatch) => {
     dispatch({ type: TOGGLE_ALIVE, payload: {row: rowId, col: colId} })

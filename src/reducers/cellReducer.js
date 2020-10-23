@@ -15,19 +15,8 @@ export const cellReducer = (state = initialState, action) => {
     switch(action.type){
         case TOGGLE_ALIVE:
             console.log(action.payload)
-            /* for (let i = 0; i < state.cells.length; i++){
-                const targetCell = state.cells[i].find(cell => cell.cellId === action.payload);
-            } */
-/* 
-            for(let i = 0; i < state.cells.length; i++){
-                for(let j = 0; j < state.cells[i].length; j++){
-                  if(state.cells[i][j].cellId === action.payload){
-                    state.cells[i][j].alive = !state.cells[i][j].alive
-                  }
-                }
-              } */
-
-              //alternate approach targeting single cell in memory
+            
+              //Action that uses row and column ids to target a specific cell and toggle its alive state
               state.cells[action.payload.row - 1][action.payload.col - 1].alive = !state.cells[action.payload.row - 1][action.payload.col - 1].alive
             return {
                 ...state,
@@ -37,21 +26,19 @@ export const cellReducer = (state = initialState, action) => {
 
         case ADVANCE_GENERATION:
          
-          
             state.generations++;
             for(let i = 0; i < state.cells.length; i++){
-                //console.log('i', state.cells[i])
                 for(let j = 0; j < state.cells[i].length; j++){
                   let neighbors = 0;
-                  //console.log('j', state.cells[i][j])
                   
-                  //Logic for counting neighbors
+                  
+              //Logic for counting neighbors
               
-              
-              //Logic for determining next generation for cells on the top row (excluding the corners)
+              //Logic for determining next generation for cells on the top row (excluding the corners).
+              //I'm looking at each of the cell's neighbors in the nested array and am keeping track of how many of the cell's neighbors are alive
               if(state.cells[i][j].rowId === 1 && state.cells[i][j].colId !== 1 && state.cells[i][j].colId !== 50 ){
 
-                /* Removing logic to have generations stop progogation beyond the top row - Will have generations stop at edges for now 
+                /* I’m temporarily removing logic that would allow generations to propogate beyond the top row 
                 if(state.cells[i - 1][j - 1].alive === true){
                   neighbors++;
                 } 
@@ -88,6 +75,7 @@ export const cellReducer = (state = initialState, action) => {
                 }
 
                 //Logic for toggling alive state for state.cells[i][j].alive
+                //I'm using the neighbors count above and the rules of Conway's Game of Life to determine the alive state of each cell for the next generation.
                 if(state.cells[i][j].alive === false && neighbors === 3){
                   state.cellsCopy[i][j].alive = true
                 }
@@ -131,7 +119,7 @@ export const cellReducer = (state = initialState, action) => {
                   
                 }
                 
-                /* Removing logic to have generations stop progogation beyond the bottom row - Will have generations stop at edges for now 
+                /* I’m temporarily removing logic that would allow generations to propogate beyond the bottom row
                 if(state.cells[i + 1][j - 1].alive === true){
                   neighbors++;
                   
@@ -144,6 +132,7 @@ export const cellReducer = (state = initialState, action) => {
                 } */
 
                 //Logic for toggling alive state for state.cells[i][j].alive
+                //I'm using the neighbors count above and the rules of Conway's Game of Life to determine the alive state of each cell for the next generation.
                 if(state.cells[i][j].alive === false && neighbors === 3){
                   state.cellsCopy[i][j].alive = true
                 }
@@ -161,7 +150,7 @@ export const cellReducer = (state = initialState, action) => {
               //Logic for determining next generation for cells on the left edge (excluding the corners)
               if(state.cells[i][j].colId === 1 && state.cells[i][j].rowId !== 1 && state.cells[i][j].rowId !== 50 ){
 
-                /* Removing logic to have generations stop progogation beyond the left column - Will have generations stop at edges for now
+                /* I’m temporarily removing logic that would allow generations to propogate beyond the left column 
                 if(state.cells[i - 1][j - 1].alive === true){
                   neighbors++;
                 } */
@@ -176,7 +165,7 @@ export const cellReducer = (state = initialState, action) => {
                   neighbors++;                 
                 }
 
-               /*  Removing logic to have generations stop progogation beyond the left column - Will have generations stop at edges for now
+               /*  I’m temporarily removing logic that would allow generations to propogate beyond the left column
                 if(state.cells[i][j - 1].alive === true){
                   neighbors++; 
                 } */
@@ -187,7 +176,7 @@ export const cellReducer = (state = initialState, action) => {
                   
                 }
                 
-               /*  Removing logic to have generations stop progogation beyond the left column - Will have generations stop at edges for now
+               /*  I’m temporarily removing logic that would allow generations to propogate beyond the left column
                 if(state.cells[i + 1][j - 1].alive === true){
                   neighbors++;   
                 } */
@@ -203,6 +192,7 @@ export const cellReducer = (state = initialState, action) => {
                 }
 
                 //Logic for toggling alive state for state.cells[i][j].alive
+                //I'm using the neighbors count above and the rules of Conway's Game of Life to determine the alive state of each cell for the next generation.
                 if(state.cells[i][j].alive === false && neighbors === 3){
                   state.cellsCopy[i][j].alive = true
                 }
@@ -229,7 +219,7 @@ export const cellReducer = (state = initialState, action) => {
                   neighbors++;
                 }
 
-               /*  Removing logic to have generations stop progogation beyond the RTCIceGatherer column - Will have generations stop at edges for now
+               /*  I’m temporarily removing logic that would allow generations to propogate beyond the right column
                 if(state.cells[i - 1][j + 1].alive === true){
                   neighbors++;                 
                 } */
@@ -239,7 +229,7 @@ export const cellReducer = (state = initialState, action) => {
                   neighbors++; 
                 }
 
-                /* Removing logic to have generations stop progogation beyond the RTCIceGatherer column - Will have generations stop at edges for now
+                /* I’m temporarily removing logic that would allow generations to propogate beyond the right column
                 if(state.cells[i][j + 1].alive === true){
                   neighbors++;  
                 } */
@@ -254,12 +244,13 @@ export const cellReducer = (state = initialState, action) => {
                   neighbors++; 
                 }
 
-               /*  Removing logic to have generations stop progogation beyond the left column - Will have generations stop at edges for now
+               /*  I’m temporarily removing logic that would allow generations to propogate beyond the right column
                 if(state.cells[i + 1][j + 1].alive === true){
                   neighbors++;
                 } */
 
                 //Logic for toggling alive state for state.cells[i][j].alive
+                //I'm using the neighbors count above and the rules of Conway's Game of Life to determine the alive state of each cell for the next generation.
                 if(state.cells[i][j].alive === false && neighbors === 3){
                   state.cellsCopy[i][j].alive = true
                 }
@@ -317,6 +308,7 @@ export const cellReducer = (state = initialState, action) => {
                 }
 
                 //Logic for toggling alive state for state.cells[i][j].alive
+                //I'm using the neighbors count above and the rules of Conway's Game of Life to determine the alive state of each cell for the next generation.
                 if(state.cells[i][j].alive === false && neighbors === 3){
                   state.cellsCopy[i][j].alive = true
                 }
@@ -334,7 +326,7 @@ export const cellReducer = (state = initialState, action) => {
               //Logic for determining next generation for cells on the top-right corner
               if(state.cells[i][j].rowId === 1 && state.cells[i][j].colId === 50){
 
-                /* Removing logic to have generations stop progogation beyond the top row - Will have generations stop at edges for now 
+                /* I’m temporarily removing logic that would allow generations to propogate beyond the top row
                 if(state.cells[i - 1][j - 1].alive === true){
                   neighbors++;
                 } 
@@ -352,7 +344,7 @@ export const cellReducer = (state = initialState, action) => {
                   
                 }
                 
-                /* Removing logic to have generations stop progogation beyond the right column - Will have generations stop at edges for now
+                /* I’m temporarily removing logic that would allow generations to propogate beyond the right column
                 if(state.cells[i][j + 1].alive === true){
                   neighbors++;
                 } */
@@ -367,12 +359,13 @@ export const cellReducer = (state = initialState, action) => {
                 }
 
 
-                /* Removing logic to have generations stop progogation beyond the right column - Will have generations stop at edges for now
+                /* I’m temporarily removing logic that would allow generations to propogate beyond the right column
                 if(state.cells[i + 1][j + 1].alive === true){
                   neighbors++;
                 } */
 
                 //Logic for toggling alive state for state.cells[i][j].alive
+                //I'm using the neighbors count above and the rules of Conway's Game of Life to determine the alive state of each cell for the next generation.
                 if(state.cells[i][j].alive === false && neighbors === 3){
                   state.cellsCopy[i][j].alive = true
                 }
@@ -390,7 +383,7 @@ export const cellReducer = (state = initialState, action) => {
               //Logic for determining next generation for cells on the bottom-left corner
               if(state.cells[i][j].colId === 1 && state.cells[i][j].rowId === 50){
 
-                /* Removing logic to have generations stop progogation beyond the left column - Will have generations stop at edges for now
+                /* I’m temporarily removing logic that would allow generations to propogate beyond the left column
                 if(state.cells[i - 1][j - 1].alive === true){
                   neighbors++;
                 } */ 
@@ -405,7 +398,7 @@ export const cellReducer = (state = initialState, action) => {
                   neighbors++;                 
                 }
 
-                /* Removing logic to have generations stop progogation beyond the left column - Will have generations stop at edges for now
+                /* I’m temporarily removing logic that would allow generations to propogate beyond the left column
                 if(state.cells[i][j - 1].alive === true){
                   neighbors++;
                 } */
@@ -416,7 +409,7 @@ export const cellReducer = (state = initialState, action) => {
                   
                 }
                 
-                /* Removing logic to have generations stop progogation beyond the bottom row - Will have generations stop at edges for now 
+                /* I’m temporarily removing logic that would allow generations to propogate beyond the bottom row
                 if(state.cells[i + 1][j - 1].alive === true){
                   neighbors++;
                   
@@ -431,6 +424,7 @@ export const cellReducer = (state = initialState, action) => {
 
 
                 //Logic for toggling alive state for state.cells[i][j].alive
+                //I'm using the neighbors count above and the rules of Conway's Game of Life to determine the alive state of each cell for the next generation.
                 if(state.cells[i][j].alive === false && neighbors === 3){
                   state.cellsCopy[i][j].alive = true
                 }
@@ -458,7 +452,7 @@ export const cellReducer = (state = initialState, action) => {
                   neighbors++;
                 }          
                 
-                /* Removing logic to have generations stop progogation beyond the right column - Will have generations stop at edges for now 
+                /* I’m temporarily removing logic that would allow generations to propogate beyond the right column 
                 if(state.cells[i - 1][j + 1].alive === true){
                   neighbors++;                 
                 } */
@@ -469,12 +463,12 @@ export const cellReducer = (state = initialState, action) => {
                   
                 }
 
-                /* Removing logic to have generations stop progogation beyond the right column - Will have generations stop at edges for now
+                /* I’m temporarily removing logic that would allow generations to propogate beyond the right column
                 if(state.cells[i][j + 1].alive === true){
                   neighbors++;
                 } */
                 
-                /* Removing logic to have generations stop progogation beyond the bottom row - Will have generations stop at edges for now 
+                /* I’m temporarily removing logic that would allow generations to propogate beyond the bottom row
                 if(state.cells[i + 1][j - 1].alive === true){
                   neighbors++;
                   
@@ -488,6 +482,7 @@ export const cellReducer = (state = initialState, action) => {
 
 
                 //Logic for toggling alive state for state.cells[i][j].alive
+                //I'm using the neighbors count above and the rules of Conway's Game of Life to determine the alive state of each cell for the next generation.
                 if(state.cells[i][j].alive === false && neighbors === 3){
                   state.cellsCopy[i][j].alive = true
                 }
@@ -548,6 +543,7 @@ export const cellReducer = (state = initialState, action) => {
                   
 
                   //Logic for toggling alive state for state.cells[i][j].alive
+                  //I'm using the neighbors count above and the rules of Conway's Game of Life to determine the alive state of each cell for the next generation.
                   if(state.cells[i][j].alive === false && neighbors === 3){
                     state.cellsCopy[i][j].alive = true
                   }

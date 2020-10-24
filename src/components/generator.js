@@ -1,3 +1,8 @@
+// This function generates copies of the nested cells array such that each cell starts with its alive state as false. 
+// The result of the generation is an array that contains fifity nested arrays each with fifty elements
+// Each cell has an alive state, a clickable state, a row id, column id, and individual cell id. 
+// I'm using this function to get arount issues with mutability and JavaScript
+
 export const cellGenerator = () => {
 
 let cells = []

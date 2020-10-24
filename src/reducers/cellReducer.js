@@ -25,7 +25,8 @@ export const cellReducer = (state = initialState, action) => {
             }
 
         case ADVANCE_GENERATION:
-         
+            // Logic for determining the subsequent state of the cell's alive state between generations.
+            // Most of the logic for Conway's Game of Life happens within this action. 
             state.generations++;
             for(let i = 0; i < state.cells.length; i++){
                 for(let j = 0; j < state.cells[i].length; j++){
@@ -160,7 +161,7 @@ export const cellReducer = (state = initialState, action) => {
                   neighbors++;
                 }
 
-                // top rith
+                // top right
                 if(state.cells[i - 1][j + 1].alive === true){
                   neighbors++;                 
                 }
@@ -269,7 +270,7 @@ export const cellReducer = (state = initialState, action) => {
               //Logic for determining next generation for cell on the top-left corner
               if(state.cells[i][j].rowId === 1 && state.cells[i][j].colId === 1){
 
-                /* Removing logic to have generations stop progogation beyond the top row - Will have generations stop at edges for now 
+                /* I’m temporarily removing logic that would allow generations to propogate beyond the the top row
                 if(state.cells[i - 1][j - 1].alive === true){
                   neighbors++;
                 } 
@@ -281,7 +282,7 @@ export const cellReducer = (state = initialState, action) => {
                   neighbors++;                 
                 } */
 
-                /* Removing logic to have generations stop progogation beyond the left column - Will have generations stop at edges for now 
+                /* I’m temporarily removing logic that would allow generations to propogate beyond the the left column 
                 if(state.cells[i][j - 1].alive === true){
                   neighbors++;                
                 } */
@@ -292,7 +293,7 @@ export const cellReducer = (state = initialState, action) => {
                   
                 }
 
-                /* Removing logic to have generations stop progogation beyond the left column - Will have generations stop at edges for now
+                /* I’m temporarily removing logic that would allow generations to propogate beyond the the left column
                 if(state.cells[i + 1][j - 1].alive === true){
                   neighbors++;
                   

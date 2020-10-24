@@ -9,6 +9,10 @@ import { toggleAlive } from '../actions/cellActions'
 
 import './grid.css'
 
+// The grid component generates the 50 x 50 grid used by the game by mapping through the nested cell's array. 
+// The first map funciton generates the rows, while the second map function generates the individual cells within those rows. 
+
+
 const Grid = (props) => {
     
     return (

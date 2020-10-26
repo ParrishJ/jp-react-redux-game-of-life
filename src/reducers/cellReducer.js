@@ -9,7 +9,7 @@ export const initialState = {
     
 }
 
-
+let cellCount = 25
 
 export const cellReducer = (state = initialState, action) => {
     switch(action.type){
@@ -37,7 +37,7 @@ export const cellReducer = (state = initialState, action) => {
               
               //Logic for determining next generation for cells on the top row (excluding the corners).
               //I'm looking at each of the cell's neighbors in the nested array and am keeping track of how many of the cell's neighbors are alive
-              if(state.cells[i][j].rowId === 1 && state.cells[i][j].colId !== 1 && state.cells[i][j].colId !== 50 ){
+              if(state.cells[i][j].rowId === 1 && state.cells[i][j].colId !== 1 && state.cells[i][j].colId !== cellCount ){
 
                 /* I’m temporarily removing logic that would allow generations to propogate beyond the top row 
                 if(state.cells[i - 1][j - 1].alive === true){
@@ -92,7 +92,7 @@ export const cellReducer = (state = initialState, action) => {
               }
 
               //Logic for determining next generation for cells on the bottom row (excluding the corners)
-              if(state.cells[i][j].rowId === 50 && state.cells[i][j].colId !== 1 && state.cells[i][j].colId !== 50 ){
+              if(state.cells[i][j].rowId === cellCount && state.cells[i][j].colId !== 1 && state.cells[i][j].colId !== cellCount ){
                 
                 //top left
                 if(state.cells[i - 1][j - 1].alive === true){
@@ -149,7 +149,7 @@ export const cellReducer = (state = initialState, action) => {
               }
 
               //Logic for determining next generation for cells on the left edge (excluding the corners)
-              if(state.cells[i][j].colId === 1 && state.cells[i][j].rowId !== 1 && state.cells[i][j].rowId !== 50 ){
+              if(state.cells[i][j].colId === 1 && state.cells[i][j].rowId !== 1 && state.cells[i][j].rowId !== cellCount ){
 
                 /* I’m temporarily removing logic that would allow generations to propogate beyond the left column 
                 if(state.cells[i - 1][j - 1].alive === true){
@@ -209,7 +209,7 @@ export const cellReducer = (state = initialState, action) => {
               }
 
               //Logic for determining next generation for cells on the right edge (excluding the corners)
-              if(state.cells[i][j].colId === 50 && state.cells[i][j].rowId !== 1 && state.cells[i][j].rowId !== 50 ){
+              if(state.cells[i][j].colId === cellCount && state.cells[i][j].rowId !== 1 && state.cells[i][j].rowId !== cellCount ){
                 
                 if(state.cells[i - 1][j - 1].alive === true){
                   neighbors++;
@@ -325,7 +325,7 @@ export const cellReducer = (state = initialState, action) => {
               } 
 
               //Logic for determining next generation for cells on the top-right corner
-              if(state.cells[i][j].rowId === 1 && state.cells[i][j].colId === 50){
+              if(state.cells[i][j].rowId === 1 && state.cells[i][j].colId === cellCount){
 
                 /* I’m temporarily removing logic that would allow generations to propogate beyond the top row
                 if(state.cells[i - 1][j - 1].alive === true){
@@ -382,7 +382,7 @@ export const cellReducer = (state = initialState, action) => {
               } 
 
               //Logic for determining next generation for cells on the bottom-left corner
-              if(state.cells[i][j].colId === 1 && state.cells[i][j].rowId === 50){
+              if(state.cells[i][j].colId === 1 && state.cells[i][j].rowId === cellCount){
 
                 /* I’m temporarily removing logic that would allow generations to propogate beyond the left column
                 if(state.cells[i - 1][j - 1].alive === true){
@@ -441,7 +441,7 @@ export const cellReducer = (state = initialState, action) => {
               } 
 
               //Logic for determining next generation for cells on the bottom-right corner
-              if(state.cells[i][j].rowId === 50 && state.cells[i][j].colId === 50){
+              if(state.cells[i][j].rowId === cellCount && state.cells[i][j].colId === cellCount){
 
                  //top left
                 if(state.cells[i - 1][j - 1].alive === true){
@@ -500,7 +500,7 @@ export const cellReducer = (state = initialState, action) => {
 
 
               //Logic for determining next generation for cells not on the edges of the grid
-              if(state.cells[i][j].colId !== 1 && state.cells[i][j].colId !== 50 && state.cells[i][j].rowId !== 1 && state.cells[i][j].rowId !== 50 ){
+              if(state.cells[i][j].colId !== 1 && state.cells[i][j].colId !== cellCount && state.cells[i][j].rowId !== 1 && state.cells[i][j].rowId !== cellCount ){
                   //top left
                   if(state.cells[i - 1][j - 1].alive === true){
                     neighbors++;
@@ -580,8 +580,8 @@ export const cellReducer = (state = initialState, action) => {
 
         case RANDOMIZE_CELLS:
           //Selects 400 random cells on the board and changes their alive state to true
-          for(let i = 0; i < 400; i++){
-            state.cellsCopy[Math.floor(Math.random() * (50 - 0) + 0)][Math.floor(Math.random() * (50 - 0) + 0)].alive = true
+          for(let i = 0; i < 125; i++){
+            state.cellsCopy[Math.floor(Math.random() * (cellCount - 0) + 0)][Math.floor(Math.random() * (cellCount - 0) + 0)].alive = true
           }
 
         return{

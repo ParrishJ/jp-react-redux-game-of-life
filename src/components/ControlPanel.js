@@ -12,6 +12,8 @@ import ListGroup from 'react-bootstrap/ListGroup'
 import headshot from '../images/Jared-Parrish-Headshot.jpg'
 import './controlPanel.css'
 
+import { CustomStyles } from '../CustomStyles';
+
 import { connect } from 'react-redux'
 
 import { advanceGeneration, clearCells, randomizeCells, toggleDisableCells } from '../actions/cellActions'
@@ -65,6 +67,7 @@ const ControlPanel = ({advanceGeneration, toggleDisableCells, clearCells, genera
     
     return (
         <>
+        <CustomStyles />
         {/* Control panel and and title component */}
         <Container className="controlPanel d-flex flex-column justify-content-around h-100" fluid>
             <div>

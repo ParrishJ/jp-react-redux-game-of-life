@@ -4,14 +4,14 @@
 // I'm using this function to get arount issues with mutability and JavaScript
 
 export const cellGenerator = () => {
-
+let cellCount = 25
 let cells = []
 let rowTracker = 1
 let cellTracker = 0
 let nestedArr = []
-for(let h = 1; h < 51; h++){
+for(let h = 1; h < cellCount + 1; h++){
   
-  for(let i = 1; i < 51; i++){
+  for(let i = 1; i < cellCount + 1; i++){
     
     nestedArr.push(
       {
@@ -26,7 +26,7 @@ for(let h = 1; h < 51; h++){
   }
   cells.push(nestedArr)
     rowTracker += 1
-    cellTracker += 50
+    cellTracker += cellCount
     nestedArr = []
 }
 return cells

@@ -1,7 +1,7 @@
 import React from 'react';
 
-import './App.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.scss';
+/* import 'bootstrap/dist/css/bootstrap.min.css'; */
 
 import Grid from './components/Grid'
 import Col from 'react-bootstrap/Col'

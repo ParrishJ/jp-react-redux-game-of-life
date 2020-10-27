@@ -70,7 +70,7 @@ const ControlPanel = ({advanceGeneration, toggleDisableCells, clearCells, genera
         <CustomStyles />
         {/* Control panel and and title component */}
         <Container className="controlPanel d-flex flex-column justify-content-around h-100" fluid>
-            <div>
+            <div className="d-none d-xl-block">
                 <h1 className="siteTitle">Conway's <br />Game of Life</h1>
             </div>
             <Col>

@@ -17,6 +17,9 @@ const Grid = (props) => {
     
     return (
         <Container className="grid" fluid>
+            <Row className="d-xl-none">
+                <h1 className="siteTitle text-center mx-auto">Conway's <br />Game of Life</h1>
+            </Row>
            {props.cells.map(row => {
                return (
                    <Row noGutters={true}>

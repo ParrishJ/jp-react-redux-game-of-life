@@ -14,6 +14,13 @@ import './Grid.scss'
 
 
 const Grid = (props) => {
+
+    let randomColor = 1;
+    // Gets random integer between 1 and 4
+    const getRandom = () =>{
+        randomColor = Math.floor(Math.random() * (5 - 1) + 1);
+        return randomColor
+    }
     
     return (
         <Container className="grid" fluid>
@@ -24,16 +31,55 @@ const Grid = (props) => {
                return (
                    <Row noGutters={true}>
                        {row.map(cell => {
-                           if(cell.alive === true){
+                           getRandom();
+                           if(cell.alive === true && randomColor === 1){
+                            
                             return (
-                                <Col className="border cell" style={{/* height: '2vw', */ backgroundColor: 'white'}} 
-                                
-                                    onClick={() => {
-                                        props.cellsEnabled && props.toggleAlive(cell.rowId, cell.colId)
-                                    }}
-                                ></Col>
-                                )
+                                    <Col className="border cell activeCellLightOrange" 
+                                    
+                                        onClick={() => {
+                                            props.cellsEnabled && props.toggleAlive(cell.rowId, cell.colId)
+                                        }}
+                                    ></Col>
+                                    )
                             }
+
+                            if(cell.alive === true && randomColor === 2){                            
+                                return (
+                                    <Col className="border cell activeCellOrange" 
+                                    
+                                        onClick={() => {
+                                            props.cellsEnabled && props.toggleAlive(cell.rowId, cell.colId)
+                                        }}
+                                    ></Col>
+                                    )
+                                }
+                                if(cell.alive === true && randomColor === 3){                            
+                                    return (
+                                        <Col className="border cell activeCellPink" 
+                                        
+                                            onClick={() => {
+                                                props.cellsEnabled && props.toggleAlive(cell.rowId, cell.colId)
+                                            }}
+                                        ></Col>
+                                        )
+                                }
+                                if(cell.alive === true && randomColor === 4){                            
+                                    return (
+                                        <Col className="border cell activeCellPurple" 
+                                        
+                                            onClick={() => {
+                                                props.cellsEnabled && props.toggleAlive(cell.rowId, cell.colId)
+                                            }}
+                                        ></Col>
+                                        )
+                                }
+
+                            
+
+                            
+
+                            
                         else {
                             return (
                             

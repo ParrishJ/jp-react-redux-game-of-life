@@ -6,7 +6,7 @@
 
 .App {
   
-  background-color: #2C2F36;
+  background-color: #1C0D30;
   height: 100%;
   min-height: 100vh;
   font-family: 'Poppins', sans-serif;
@@ -18,7 +18,10 @@
 
 
 $theme-colors: (
-    
+    'primary': #FF8C47,
+    'secondary': #E84941,
+    'light': #FF54F8,
+    'info': #9245FF
   );
   
 @import '../node_modules/bootstrap/scss/bootstrap.scss'; 

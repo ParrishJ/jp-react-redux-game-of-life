@@ -76,20 +76,20 @@ const ControlPanel = ({advanceGeneration, toggleDisableCells, clearCells, genera
             <Col className="d-flex flex-column align-items-center align-items-xl-start">
                 
                 <div className="generations my-5">
-                    <h1>Generations: {generations}</h1>
+                    <h1>Generations: <span className="generationsNumber">{generations}</span></h1>
                 </div>
 
                 <ButtonGroup vertical>
-                        <Button variant="outline-success" onClick={() => {setGenerationActivity(true); setButtonsWhileRunning(true); setStopButton(false)}} disabled={buttonsWhileRunning}>Start Game</Button>
-                        <Button variant="outline-light" onClick={(e) => {randomizeCells()}} disabled={buttonsWhileRunning}>Randomize</Button>
-                        <Button variant="outline-light" onClick={() => { advanceGeneration()}} disabled={buttonsWhileRunning}>Advance Generation</Button>
-                        <Button variant="outline-danger" onClick={() => {setGenerationActivity(false); setButtonsWhileRunning(false); setStopButton(true)}} disabled={stopButton}>Stop Game</Button>
-                        <Button variant="outline-danger" onClick={(e) => {clearCells()}} disabled={buttonsWhileRunning}>Clear</Button>
+                        <Button variant="outline-primary" onClick={() => {setGenerationActivity(true); setButtonsWhileRunning(true); setStopButton(false)}} disabled={buttonsWhileRunning}>Start Game</Button>
+                        <Button variant="outline-secondary" onClick={(e) => {randomizeCells()}} disabled={buttonsWhileRunning}>Randomize</Button>
+                        <Button variant="outline-secondary" onClick={() => { advanceGeneration()}} disabled={buttonsWhileRunning}>Advance Generation</Button>
+                        <Button variant="outline-light" onClick={() => {setGenerationActivity(false); setButtonsWhileRunning(false); setStopButton(true)}} disabled={stopButton}>Stop Game</Button>
+                        <Button variant="outline-light" onClick={(e) => {clearCells()}} disabled={buttonsWhileRunning}>Clear</Button>
                 </ButtonGroup>
                 
                 <div className="justify-content-center mt-4">
                     <p style={{color: 'white', marginBottom: '0.5em'}}>Adujst Speed of Game</p>
-                    <input className="" type="range" min="0" max={maxRangeValue} value={rangeValue} onChange={handleRangeChange}></input>
+                    <input className="w-100" type="range" min="0" max={maxRangeValue} value={rangeValue} onChange={handleRangeChange}></input>
                 </div>
                 <ButtonGroup vertical className="mt-4">
                     <Button variant="outline-info" onClick={() => {setShowGolModal(true)}}>About Conway's Game of Life</Button>

@@ -16,10 +16,10 @@ function App() {
     <div className="App" id="app">
       <Container fluid>
       <Row className="m-0 h-100 flex-column-reverse flex-xl-row">
-        <Col className="p-5" xs={12} xl={6}>
+        <Col className="p-0 p-xl-5" xs={12} xl={6}>
           <ControlPanel />
         </Col>
-        <Col className="p-5" xs={12} xl={6}>
+        <Col className="p-0 p-xl-5" xs={12} xl={6}>
           <Grid />
         </Col>
       </Row>

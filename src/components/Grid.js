@@ -18,7 +18,7 @@ const Grid = (props) => {
     return (
         <Container className="grid" fluid>
             <Row className="d-xl-none">
-                <h1 className="gridSiteTitle text-center mx-auto mb-4">Conway's <br />Game of Life</h1>
+                <h1 className="gridSiteTitle text-center mx-auto my-4">Conway's <br />Game of Life</h1>
             </Row>
            {props.cells.map(row => {
                return (

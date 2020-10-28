@@ -7,7 +7,7 @@ import Col from 'react-bootstrap/Col'
 import { connect } from 'react-redux'
 import { toggleAlive } from '../actions/cellActions'
 
-import './grid.css'
+import './Grid.scss'
 
 // The grid component generates the 50 x 50 grid used by the game by mapping through the nested cell's array. 
 // The first map funciton generates the rows, while the second map function generates the individual cells within those rows. 
@@ -17,6 +17,9 @@ const Grid = (props) => {
     
     return (
         <Container className="grid" fluid>
+            <Row className="d-xl-none">
+                <h1 className="gridSiteTitle text-center mx-auto my-4">Conway's <br />Game of Life</h1>
+            </Row>
            {props.cells.map(row => {
                return (
                    <Row noGutters={true}>

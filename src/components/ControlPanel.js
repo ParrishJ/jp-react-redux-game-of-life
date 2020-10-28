@@ -10,7 +10,7 @@ import Image from 'react-bootstrap/Image'
 import ListGroup from 'react-bootstrap/ListGroup'
 
 import headshot from '../images/Jared-Parrish-Headshot.jpg'
-import './controlPanel.css'
+import './ControlPanel.scss'
 
 import { CustomStyles } from '../CustomStyles';
 
@@ -69,11 +69,11 @@ const ControlPanel = ({advanceGeneration, toggleDisableCells, clearCells, genera
         <>
         <CustomStyles />
         {/* Control panel and and title component */}
-        <Container className="controlPanel d-flex flex-column justify-content-around h-100" fluid>
+        <Container className="controlPanel d-flex flex-column justify-content-around  h-100" fluid>
             <div className="d-none d-xl-block">
                 <h1 className="siteTitle">Conway's <br />Game of Life</h1>
             </div>
-            <Col>
+            <Col className="d-flex flex-column align-items-center align-items-xl-start">
                 
                 <div className="generations my-5">
                     <h1>Generations: {generations}</h1>
@@ -91,14 +91,12 @@ const ControlPanel = ({advanceGeneration, toggleDisableCells, clearCells, genera
                     <p style={{color: 'white', marginBottom: '0.5em'}}>Adujst Speed of Game</p>
                     <input className="" type="range" min="0" max={maxRangeValue} value={rangeValue} onChange={handleRangeChange}></input>
                 </div>
-            </Col>
-
-            <Col className="mt-4">
-                <ButtonGroup>
+                <ButtonGroup vertical className="mt-4">
                     <Button variant="outline-info" onClick={() => {setShowGolModal(true)}}>About Conway's Game of Life</Button>
                     <Button variant="outline-info" onClick={() => {setShowMeModal(true)}}>About me</Button>
                 </ButtonGroup>
             </Col>
+
 
         </Container>
 

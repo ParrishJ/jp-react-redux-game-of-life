@@ -1,22 +1,20 @@
 import React from 'react';
 
-import './App.scss';
-/* import 'bootstrap/dist/css/bootstrap.min.css'; */
-
 import Grid from './components/Grid'
 import Col from 'react-bootstrap/Col'
 import Container from 'react-bootstrap/Container'
-
 import ControlPanel from './components/ControlPanel'
-
 import Row from 'react-bootstrap/Row'
+
+import './App.scss';
+/* import 'bootstrap/dist/css/bootstrap.min.css'; */
 
 function App() {
   return (
     <div className="App" id="app">
       <Container fluid>
       <Row className="m-0 h-100 flex-column-reverse flex-xl-row">
-        <Col className="p-0 p-xl-5" xs={12} xl={6}>
+        <Col className="p-0 p-xl-5 mb-5 mb-xl-0" xs={12} xl={6}>
           <ControlPanel />
         </Col>
         <Col className="p-0 p-xl-5" xs={12} xl={6}>

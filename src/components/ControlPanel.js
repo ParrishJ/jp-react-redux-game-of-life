@@ -71,7 +71,7 @@ const ControlPanel = ({advanceGeneration, toggleDisableCells, clearCells, genera
         {/* Control panel and and title component */}
         <Container className="controlPanel d-flex flex-column justify-content-around  h-100" fluid>
             <div className="d-none d-xl-block">
-                <h1 className="siteTitle">Conway's <br />Game of Life</h1>
+                <h1 className="siteTitle">Conway<span className="titleApostrophe">'</span>s <br />Game of Life</h1>
             </div>
             <Col className="d-flex flex-column align-items-center align-items-xl-start">
                 
@@ -88,7 +88,7 @@ const ControlPanel = ({advanceGeneration, toggleDisableCells, clearCells, genera
                 </ButtonGroup>
                 
                 <div className="justify-content-center mt-4">
-                    <p style={{color: 'white', marginBottom: '0.5em'}}>Adujst Speed of Game</p>
+                    <p className="mb-2 adjustText">Adujst Speed of Game</p>
                     <input className="w-100" type="range" min="0" max={maxRangeValue} value={rangeValue} onChange={handleRangeChange}></input>
                 </div>
                 <ButtonGroup vertical className="mt-4">

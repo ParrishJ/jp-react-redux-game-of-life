@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react'
 
+import GridColorRadios from './GridColorRadios'
+
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
@@ -16,13 +18,11 @@ import { CustomStyles } from '../CustomStyles';
 
 import { connect } from 'react-redux'
 
-import { advanceGeneration, clearCells, randomizeCells, toggleDisableCells } from '../actions/cellActions'
+import { advanceGeneration, clearCells, randomizeCells, toggleDisableCells, toggleGenerationActivity, toggleButtonsWhileRunning, toggleStopButton  } from '../actions/cellActions'
 
 //Destructured props instead of just passing props here
-const ControlPanel = ({advanceGeneration, toggleDisableCells, clearCells, generations, randomizeCells }) => {
-    const [generationActivity, setGenerationActivity] = useState(false);
-
-
+const ControlPanel = ({advanceGeneration, toggleDisableCells, clearCells, generations, randomizeCells, gridColor, generationActivity, toggleGenerationActivity, toggleButtonsWhileRunning, toggleStopButton, stopButton, buttonsWhileRunning }) => {
+    
     // In order have the range slider speed the animation up as the slider moves to the right, I have to subtract the rangeValue from the maxRangeValue. 
     // I'm setting a max range value here so that I only need to adjust it in one place in the future.
     const maxRangeValue = 2000
@@ -31,18 +31,13 @@ const ControlPanel = ({advanceGeneration, toggleDisableCells, clearCells, genera
     // I then set the value of the range slider to rangeValue to make the slider a controlled input
     const [rangeValue, setRangeValue] = useState(maxRangeValue / 2);
 
-    // buttonsWhileRunning disables all buttons besides stop button while the simulation is running
-    const [buttonsWhileRunning, setButtonsWhileRunning] = useState(false)
-
-    // Disables the stop button if the siumaltion is not running
-    const [stopButton, setStopButton] = useState(true)
-
     // State (bool) that determines whether the about Conways Game of Life Modal is displayed
     const [showGolModal, setShowGolModal] = useState(false)
 
     // State (bool) that determines whether the about me modal is displayed
     const [showMeModal, setShowMeModal] = useState(false)
 
+    
     const handleRangeChange = (e) => {
         setRangeValue(e.target.value);
         
@@ -61,7 +56,7 @@ const ControlPanel = ({advanceGeneration, toggleDisableCells, clearCells, genera
             }
             
         return() => {clearInterval(generationIntervalId); toggleDisableCells(true)}
-    }, [generationActivity, rangeValue, advanceGeneration, toggleDisableCells])
+    }, [generationActivity, rangeValue, advanceGeneration, toggleDisableCells, gridColor])
 
     
     
@@ -80,17 +75,21 @@ const ControlPanel = ({advanceGeneration, toggleDisableCells, clearCells, genera
                 </div>
 
                 <ButtonGroup vertical>
-                        <Button variant="outline-primary" onClick={() => {setGenerationActivity(true); setButtonsWhileRunning(true); setStopButton(false)}} disabled={buttonsWhileRunning}>Start Game</Button>
+                        <Button variant="outline-primary" onClick={() => {toggleGenerationActivity(true); toggleButtonsWhileRunning(true); toggleStopButton(false)}} disabled={buttonsWhileRunning}>Start Game</Button>
                         <Button variant="outline-secondary" onClick={(e) => {randomizeCells()}} disabled={buttonsWhileRunning}>Randomize</Button>
                         <Button variant="outline-secondary" onClick={() => { advanceGeneration()}} disabled={buttonsWhileRunning}>Advance Generation</Button>
-                        <Button variant="outline-light" onClick={() => {setGenerationActivity(false); setButtonsWhileRunning(false); setStopButton(true)}} disabled={stopButton}>Stop Game</Button>
+                        <Button variant="outline-light" onClick={() => {toggleGenerationActivity(false); toggleButtonsWhileRunning(false); toggleStopButton(true)}} disabled={stopButton}>Stop Game</Button>
                         <Button variant="outline-light" onClick={(e) => {clearCells()}} disabled={buttonsWhileRunning}>Clear</Button>
                 </ButtonGroup>
                 
-                <div className="justify-content-center mt-4">
-                    <p className="mb-2 adjustText">Adujst Speed of Game</p>
-                    <input className="w-100" type="range" min="0" max={maxRangeValue} value={rangeValue} onChange={handleRangeChange}></input>
+                <div className="justify-content-center mt-4 w-50">
+                    
+                    <label  className="adjustText" for="gameSpeedRangeControl">Adujst Speed of Game</label>
+                    <input className="w-100 form-control-range." type="range" min="0" max={maxRangeValue} value={rangeValue} onChange={handleRangeChange} id="gameSpeedRangeControl"></input>
                 </div>
+
+                <GridColorRadios />
+
                 <ButtonGroup vertical className="mt-4">
                     <Button variant="outline-info" onClick={() => {setShowGolModal(true)}}>About Conway's Game of Life</Button>
                     <Button variant="outline-info" onClick={() => {setShowMeModal(true)}}>About me</Button>
@@ -178,6 +177,11 @@ const ControlPanel = ({advanceGeneration, toggleDisableCells, clearCells, genera
 const mapStateToProps = (state) => {
     return {
         generations: state.generations,
+        gridColor: state.gridColor,
+        generationActivity: state.generationActivity,
+        stopButton: state.stopButton,
+        buttonsWhileRunning: state.buttonsWhileRunning,
     }
 }
-export default connect(mapStateToProps, { advanceGeneration, clearCells, randomizeCells, toggleDisableCells })(ControlPanel)
+
+export default connect(mapStateToProps, { advanceGeneration, clearCells, randomizeCells, toggleDisableCells, toggleGenerationActivity, toggleButtonsWhileRunning, toggleStopButton })(ControlPanel)

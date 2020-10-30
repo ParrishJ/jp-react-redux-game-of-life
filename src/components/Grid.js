@@ -1,5 +1,7 @@
 import React from 'react'
 
+
+
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
@@ -25,9 +27,11 @@ const Grid = (props) => {
     return (
         <Container className="grid" fluid>
             <Row className="d-xl-none">
-                <h1 className="gridSiteTitle text-center mx-auto my-4">Conway's <br />Game of Life</h1>
+                <h1 className="gridSiteTitle text-center mx-auto my-4">Conway<span className="titleApostrophe">'</span>s <br />Game of Life</h1>
             </Row>
            {props.cells.map(row => {
+
+            if (props.gridColors === 'Fancy'){
                return (
                    <Row noGutters={true}>
                        {row.map(cell => {
@@ -75,11 +79,6 @@ const Grid = (props) => {
                                         )
                                 }
 
-                            
-
-                            
-
-                            
                         else {
                             return (
                             
@@ -91,6 +90,36 @@ const Grid = (props) => {
                        })}
                    </Row>
                )
+            }
+            if (props.gridColors === 'Plain'){
+                return (
+                    <Row noGutters={true}>
+                        {row.map(cell => {
+                            
+                            if(cell.alive === true){
+                             
+                             return (
+                                     <Col className="border cell activeCell" 
+                                     
+                                         onClick={() => {
+                                             props.cellsEnabled && props.toggleAlive(cell.rowId, cell.colId)
+                                         }}
+                                     ></Col>
+                                     )
+                             }
+                             
+                         else {
+                             return (
+                             
+                                 <Col className="border cell" style={{/* height: '2vw' */}} 
+                                     onClick={() => { props.cellsEnabled && props.toggleAlive(cell.rowId, cell.colId)}}>
+                                 </Col>
+                                 )
+                         }
+                        })}
+                    </Row>
+                )
+            }
            })}
         </Container>
     )
@@ -99,7 +128,8 @@ const Grid = (props) => {
 const mapStateToProps = (state) => {
     return {
         cells: state.cells,
-        cellsEnabled: state.cellsEnabled
+        cellsEnabled: state.cellsEnabled,
+        gridColors: state.gridColors
     }
 }
 export default connect(mapStateToProps, { toggleAlive })(Grid)

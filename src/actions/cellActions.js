@@ -3,6 +3,11 @@ export const ADVANCE_GENERATION = "ADVANCE_GENERATION";
 export const CLEAR_CELLS = "CLEAR_CELLS";
 export const RANDOMIZE_CELLS = "RANDOMIZE_CELLS";
 export const DISABLE_CELLS = "DISABLE_CELLS";
+export const TOGGLE_FANCY_COLORS = "TOGGLE_FANCY_COLORS";
+export const TOGGLE_GENERATION_ACTIVITY = "TOGGLE_GENERATION_ACTIVITY";
+export const TOGGLE_STOP_BUTTON = "TOGGLE_STOP_BUTTON";
+export const TOGGLE_BUTTONS_WHILE_RUNNING = "TOGGLE_BUTTONS_WHILE_RUNNING";
+
 
 // The actions here are pretty self explanitory:
 // The toggleAlive switches the alive state of a cell
@@ -32,4 +37,20 @@ export const randomizeCells = () => (dispatch) => {
 
 export const toggleDisableCells = (bool) => (dispatch) => {
     dispatch({ type: DISABLE_CELLS, payload: bool })
+}
+
+export const toggleGenerationActivity = (bool) => (dispatch) => {
+    dispatch({ type: TOGGLE_GENERATION_ACTIVITY, payload: bool })
+}
+
+export const toggleFancyColors = (string) => (dispatch) => {
+    dispatch({ type: TOGGLE_FANCY_COLORS, payload: string })
+}
+
+export const toggleStopButton = (bool) => (dispatch) => {
+    dispatch({ type: TOGGLE_STOP_BUTTON, payload: bool })
+}
+
+export const toggleButtonsWhileRunning = (bool) => (dispatch) => {
+    dispatch({ type: TOGGLE_BUTTONS_WHILE_RUNNING, payload: bool })
 }

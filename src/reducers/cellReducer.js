@@ -1,11 +1,15 @@
-import { TOGGLE_ALIVE, ADVANCE_GENERATION, CLEAR_CELLS, RANDOMIZE_CELLS, DISABLE_CELLS } from '../actions/cellActions'
+import { TOGGLE_ALIVE, ADVANCE_GENERATION, CLEAR_CELLS, RANDOMIZE_CELLS, DISABLE_CELLS,TOGGLE_FANCY_COLORS, TOGGLE_GENERATION_ACTIVITY, TOGGLE_STOP_BUTTON, TOGGLE_BUTTONS_WHILE_RUNNING  } from '../actions/cellActions'
 import {cellGenerator } from '../components/generator'
 
 export const initialState = {
     generations: 0,
     cells: cellGenerator(),
     cellsCopy: cellGenerator(),
-    cellsEnabled: true, 
+    cellsEnabled: true,
+    gridColors: "Plain",
+    generationActivity: false,
+    buttonsWhileRunning: false,
+    stopButton: true
     
 }
 
@@ -591,11 +595,42 @@ export const cellReducer = (state = initialState, action) => {
           
         }
 
+        case TOGGLE_GENERATION_ACTIVITY:
+          // Toggles toggles the value that determines whether the simulation runs or not
+          return{
+            ...state,
+            generationActivity: action.payload,
+          }
+
         case DISABLE_CELLS:
         //Disables the ability to click on and change the alive state of cells while simulation is running
         return{
           ...state,
           cellsEnabled: action.payload,
+        }
+
+        case TOGGLE_FANCY_COLORS:
+          
+        // Toggles the color of the grid
+        return{
+          ...state,
+          gridColors: action.payload,
+        }
+
+        case TOGGLE_STOP_BUTTON:
+          
+          // Toggles the color of the grid
+        return{
+          ...state,
+          stopButton: action.payload,
+        }
+
+        case TOGGLE_BUTTONS_WHILE_RUNNING:
+          
+        // Toggles the color of the grid
+        return{
+          ...state,
+          buttonsWhileRunning: action.payload,
         }
 
         default:

@@ -64,17 +64,19 @@ const ControlPanel = ({advanceGeneration, toggleDisableCells, clearCells, genera
         <>
         <CustomStyles />
         {/* Control panel and and title component */}
-        <Container className="controlPanel d-flex flex-column justify-content-around  h-100" fluid>
-            <div className="d-none d-xl-block">
+        <Container className="controlPanel d-flex flex-column h-100" fluid>
+            
+            
+            <Col xs={12} className="d-flex flex-column align-items-center">
+            <div className="d-none d-xl-block align-self-start">
                 <h1 className="siteTitle">Conway<span className="titleApostrophe">'</span>s <br />Game of Life</h1>
             </div>
-            <Col className="d-flex flex-column align-items-center align-items-xl-start">
-                
-                <div className="generations my-5">
+            
+                <div className="generations align-self-start my-4">
                     <h1>Generations: <span className="generationsNumber">{generations}</span></h1>
                 </div>
 
-                <ButtonGroup vertical>
+                <ButtonGroup className="w-100" vertical>
                         <Button variant="outline-primary" onClick={() => {toggleGenerationActivity(true); toggleButtonsWhileRunning(true); toggleStopButton(false)}} disabled={buttonsWhileRunning}>Start Game</Button>
                         <Button variant="outline-secondary" onClick={(e) => {randomizeCells()}} disabled={buttonsWhileRunning}>Randomize</Button>
                         <Button variant="outline-secondary" onClick={() => { advanceGeneration()}} disabled={buttonsWhileRunning}>Advance Generation</Button>
@@ -82,20 +84,20 @@ const ControlPanel = ({advanceGeneration, toggleDisableCells, clearCells, genera
                         <Button variant="outline-light" onClick={(e) => {clearCells()}} disabled={buttonsWhileRunning}>Clear</Button>
                 </ButtonGroup>
                 
-                <div className="justify-content-center mt-4 w-50">
-                    
-                    <label  className="adjustText" for="gameSpeedRangeControl">Adujst Speed of Game</label>
-                    <input className="w-100 form-control-range." type="range" min="0" max={maxRangeValue} value={rangeValue} onChange={handleRangeChange} id="gameSpeedRangeControl"></input>
+                <div className="mt-4 w-100">
+                    <label className="text-center w-100 adjustText" for="gameSpeedRangeControl">Adujst Speed of Game</label>
+                    <input className="text-center w-100 form-control-range" type="range" min="0" max={maxRangeValue} value={rangeValue} onChange={handleRangeChange} id="gameSpeedRangeControl"></input>
                 </div>
 
                 <GridColorRadios />
 
-                <ButtonGroup vertical className="mt-4">
+                <ButtonGroup vertical className="w-100 mt-4">
                     <Button variant="outline-info" onClick={() => {setShowGolModal(true)}}>About Conway's Game of Life</Button>
                     <Button variant="outline-info" onClick={() => {setShowMeModal(true)}}>About me</Button>
                 </ButtonGroup>
             </Col>
-
+            
+            
 
         </Container>
 

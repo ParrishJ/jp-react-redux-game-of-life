@@ -19,7 +19,7 @@ const GridColorRadios = ({ toggleFancyColors, clearCells, toggleGenerationActivi
     return (
         <>
          {/* Color Selector Radios */}
-         <label  className="adjustText my-2" for="colorChangeRadio">Change Color of Grid</label>
+         <label  className="adjustText my-2" for="colorChangeRadio">Change Grid Color</label>
          <ButtonGroup toggle id="colorChangeRadio">
          {colorSelectorRadios.map((radio, idx) => (
          <ToggleButton

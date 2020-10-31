@@ -36,7 +36,7 @@ const Grid = (props) => {
                    <Row noGutters={true}>
                        {row.map(cell => {
                            getRandom();
-                           if(cell.alive === true && randomColor === 1){
+                            if(cell.alive === true && randomColor === 1){
                             
                             return (
                                     <Col className="border cell activeCellLightOrange" 
@@ -47,7 +47,6 @@ const Grid = (props) => {
                                     ></Col>
                                     )
                             }
-
                             if(cell.alive === true && randomColor === 2){                            
                                 return (
                                     <Col className="border cell activeCellOrange" 
@@ -57,8 +56,8 @@ const Grid = (props) => {
                                         }}
                                     ></Col>
                                     )
-                                }
-                                if(cell.alive === true && randomColor === 3){                            
+                            }
+                            if(cell.alive === true && randomColor === 3){                            
                                     return (
                                         <Col className="border cell activeCellPink" 
                                         
@@ -67,9 +66,9 @@ const Grid = (props) => {
                                             }}
                                         ></Col>
                                         )
-                                }
-                                if(cell.alive === true && randomColor === 4){                            
-                                    return (
+                            }
+                            if(cell.alive === true && randomColor === 4){                            
+                                return (
                                         <Col className="border cell activeCellPurple" 
                                         
                                             onClick={() => {
@@ -77,21 +76,20 @@ const Grid = (props) => {
                                             }}
                                         ></Col>
                                         )
-                                }
-
-                        else {
-                            return (
-                            
-                                <Col className="border cell" style={{/* height: '2vw' */}} 
-                                    onClick={() => { props.cellsEnabled && props.toggleAlive(cell.rowId, cell.colId)}}>
-                                </Col>
-                                )
-                        }
+                            }
+                            else {
+                                return (
+                                
+                                    <Col className="border cell" style={{/* height: '2vw' */}} 
+                                        onClick={() => { props.cellsEnabled && props.toggleAlive(cell.rowId, cell.colId)}}>
+                                    </Col>
+                                    )
+                            }
                        })}
                    </Row>
                )
             }
-            if (props.gridColors === 'Plain'){
+            else {
                 return (
                     <Row noGutters={true}>
                         {row.map(cell => {

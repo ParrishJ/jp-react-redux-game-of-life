@@ -14,10 +14,10 @@ function App() {
     <div className="App" id="app">
       <Container fluid>
       <Row className="m-0 h-100 flex-column-reverse flex-xl-row">
-        <Col className="p-0 p-xl-5 mb-5 mb-xl-0" xs={12} xl={6}>
+        <Col className="p-0 p-xl-5 mb-5 mb-xl-0" xs={12} /* lg={6} */ xl={5}>
           <ControlPanel />
         </Col>
-        <Col className="p-0 p-xl-5" xs={12} xl={6}>
+        <Col className="p-0 p-xl-5" xs={12} /* lg={6} */ xl={7}>
           <Grid />
         </Col>
       </Row>

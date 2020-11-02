@@ -2,7 +2,6 @@ import React from 'react';
 
 import Grid from './components/Grid'
 import ControlPanel from './components/ControlPanel'
-import Footer from './components/Footer'
 
 import Modals from './components/Modals'
 import Col from 'react-bootstrap/Col'
@@ -39,9 +38,6 @@ function App() {
           alt="sun-image"
           src={sun}
         />
-        {/* <Figure.Caption>
-          Nulla vitae elit libero, a pharetra augue mollis interdum.
-        </Figure.Caption> */}
       </Figure>
       
      {/*  <Footer /> */}

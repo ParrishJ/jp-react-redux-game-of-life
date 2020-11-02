@@ -2,11 +2,14 @@ import React from 'react';
 
 import Grid from './components/Grid'
 import ControlPanel from './components/ControlPanel'
-import Modals from './components/Modals'
+import Footer from './components/Footer'
 
+import Modals from './components/Modals'
 import Col from 'react-bootstrap/Col'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
+
+
 
 import './App.scss';
 /* import 'bootstrap/dist/css/bootstrap.min.css'; */
@@ -25,7 +28,7 @@ function App() {
       </Row>
       <Modals />
       </Container>
-      
+      <Footer />
     </div>
   );
 }

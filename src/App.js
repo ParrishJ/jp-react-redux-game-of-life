@@ -18,27 +18,28 @@ function App() {
     <div className="App" id="app">
       <div className="containerContainer d-flex mx-auto justify-content-center align-items-center">
         <Container className="appContainer" fluid>
-        <Row className="m-0 h-100 flex-column-reverse flex-xl-row">
-          <Col className="p-0 p-xl-5 mb-5 mb-xl-0" xs={12} /* lg={6} */ xl={5}>
+        <Row className="m-0 h-100 flex-column-reverse flex-lg-row">
+          <Col className="p-0 p-lg-2 p-xl-5 mb-5 mb-xl-0" xs={12} /* lg={6} */ lg={5}>
             <ControlPanel />
           </Col>
-          <Col className="p-0 p-xl-5" xs={12} /* lg={6} */ xl={7}>
+          <Col className="p-0 p-lg-2 p-xl-5" xs={12} /* lg={6} */ lg={7}>
             <Grid />
           </Col>
         </Row>
         <Modals />
         </Container>
-      
-      </div>
-      
-      <Figure className="sun">
+        <Figure className="sun">
         <Figure.Image
-          width={180}
-          height={180}
+         /*  width={10vw}
+          height={250} */
           alt="sun-image"
           src={sun}
         />
       </Figure>
+      
+      </div>
+      
+      
       
      {/*  <Footer /> */}
     </div>

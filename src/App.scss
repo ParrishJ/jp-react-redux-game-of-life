@@ -13,14 +13,21 @@
 
 }
 
+.appContainer {
+  z-index: 1;
+}
+
 .containerContainer {
   max-width: 1600px;
-  height: 100vh;
-  min-height: 800px;
+  min-height: 100vh;
+ 
 }
 
 .sun {
   position: absolute;
+  top: -6%;
+  left: -6%;
+  width: 15vw;
 }
 
 @media (prefers-reduced-motion: no-preference) {

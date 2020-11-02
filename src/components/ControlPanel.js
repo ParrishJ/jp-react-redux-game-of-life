@@ -52,7 +52,7 @@ const ControlPanel = ({advanceGeneration, toggleDisableCells, clearCells, genera
             
             
             <Col xs={12} className="d-flex flex-column align-items-center">
-            <div className="d-none d-xl-block align-self-start">
+            <div className="d-none d-lg-block align-self-start">
                 <h1 className="siteTitle">Conway<span className="titleApostrophe">'</span>s <br />Game of Life</h1>
             </div>
             

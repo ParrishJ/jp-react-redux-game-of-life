@@ -1,9 +1,11 @@
 import React from 'react';
 
 import Grid from './components/Grid'
+import ControlPanel from './components/ControlPanel'
+import Modals from './components/Modals'
+
 import Col from 'react-bootstrap/Col'
 import Container from 'react-bootstrap/Container'
-import ControlPanel from './components/ControlPanel'
 import Row from 'react-bootstrap/Row'
 
 import './App.scss';
@@ -21,7 +23,9 @@ function App() {
           <Grid />
         </Col>
       </Row>
+      <Modals />
       </Container>
+      
     </div>
   );
 }

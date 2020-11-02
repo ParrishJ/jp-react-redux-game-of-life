@@ -8,8 +8,8 @@ import Modals from './components/Modals'
 import Col from 'react-bootstrap/Col'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
-
-
+import Figure from 'react-bootstrap/Figure'
+import sun from './images/sun-1.svg'
 
 import './App.scss';
 /* import 'bootstrap/dist/css/bootstrap.min.css'; */
@@ -17,18 +17,34 @@ import './App.scss';
 function App() {
   return (
     <div className="App" id="app">
-      <Container fluid>
-      <Row className="m-0 h-100 flex-column-reverse flex-xl-row">
-        <Col className="p-0 p-xl-5 mb-5 mb-xl-0" xs={12} /* lg={6} */ xl={5}>
-          <ControlPanel />
-        </Col>
-        <Col className="p-0 p-xl-5" xs={12} /* lg={6} */ xl={7}>
-          <Grid />
-        </Col>
-      </Row>
-      <Modals />
-      </Container>
-      <Footer />
+      <div className="containerContainer d-flex mx-auto justify-content-center align-items-center">
+        <Container className="appContainer" fluid>
+        <Row className="m-0 h-100 flex-column-reverse flex-xl-row">
+          <Col className="p-0 p-xl-5 mb-5 mb-xl-0" xs={12} /* lg={6} */ xl={5}>
+            <ControlPanel />
+          </Col>
+          <Col className="p-0 p-xl-5" xs={12} /* lg={6} */ xl={7}>
+            <Grid />
+          </Col>
+        </Row>
+        <Modals />
+        </Container>
+      
+      </div>
+      
+      <Figure className="sun">
+        <Figure.Image
+          width={180}
+          height={180}
+          alt="sun-image"
+          src={sun}
+        />
+        {/* <Figure.Caption>
+          Nulla vitae elit libero, a pharetra augue mollis interdum.
+        </Figure.Caption> */}
+      </Figure>
+      
+     {/*  <Footer /> */}
     </div>
   );
 }

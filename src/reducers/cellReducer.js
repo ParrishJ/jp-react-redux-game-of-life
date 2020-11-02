@@ -1,4 +1,4 @@
-import { TOGGLE_ALIVE, ADVANCE_GENERATION, CLEAR_CELLS, RANDOMIZE_CELLS, DISABLE_CELLS,TOGGLE_FANCY_COLORS, TOGGLE_GENERATION_ACTIVITY, TOGGLE_STOP_BUTTON, TOGGLE_BUTTONS_WHILE_RUNNING  } from '../actions/cellActions'
+import { TOGGLE_ALIVE, ADVANCE_GENERATION, CLEAR_CELLS, RANDOMIZE_CELLS, DISABLE_CELLS,TOGGLE_FANCY_COLORS, TOGGLE_GENERATION_ACTIVITY, TOGGLE_STOP_BUTTON, TOGGLE_BUTTONS_WHILE_RUNNING, TOGGLE_SHOW_GOL_MODAL, TOGGLE_SHOW_ME_MODAL  } from '../actions/cellActions'
 import {cellGenerator } from '../components/generator'
 
 export const initialState = {
@@ -9,7 +9,9 @@ export const initialState = {
     gridColors: "Plain",
     generationActivity: false,
     buttonsWhileRunning: false,
-    stopButton: true
+    stopButton: true,
+    showGolModal: false,
+    showMeModal: false,
     
 }
 
@@ -631,6 +633,22 @@ export const cellReducer = (state = initialState, action) => {
         return{
           ...state,
           buttonsWhileRunning: action.payload,
+        }
+
+        case TOGGLE_SHOW_GOL_MODAL:
+          
+        // Toggles display of Gol Modal
+        return{
+          ...state,
+          showGolModal: action.payload,
+        }
+
+        case TOGGLE_SHOW_ME_MODAL:
+          
+        // Toggles display of Gol Modal
+        return{
+          ...state,
+          showMeModal: action.payload,
         }
 
         default:

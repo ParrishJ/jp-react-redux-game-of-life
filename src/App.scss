@@ -25,9 +25,22 @@
 
 .sun {
   position: absolute;
-  top: -6%;
-  left: -6%;
-  width: 15vw;
+    top: -20%;
+    left: -15%;
+    width: 35vw;
+  @media(min-width: 768px){
+    
+    top: -15%;
+    left: -8%;
+    width: 25vw;
+  }
+ 
+  @media(min-width: 992px){
+    top: -20%;
+    left: -8%;
+    width: 18vw;
+  }
+  
 }
 
 @media (prefers-reduced-motion: no-preference) {

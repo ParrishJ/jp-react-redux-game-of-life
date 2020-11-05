@@ -25,22 +25,37 @@
 
 .sun {
   position: absolute;
-    top: -20%;
-    left: -15%;
-    width: 35vw;
+  top: -8%;
+  left: -25%;
+  width: 55vw;
+
+  @media(min-width: 576px){
+    top: -15%;
+    left: -25%;
+    width: 55vw;
+  }
   @media(min-width: 768px){
     
-    top: -15%;
-    left: -8%;
-    width: 25vw;
+    top: -17%;
+    left: -17%;
+    width: 45vw;
   }
  
   @media(min-width: 992px){
-    top: -20%;
-    left: -8%;
-    width: 18vw;
+    top: -10%;
+    left: -10%;
+    width: 30vw;
   }
-  
+  @media(min-width: 1200px){
+    top: -10%;
+    left: -7%;
+    width: 20vw;
+  }
+  @media(min-width: 1600px){
+    top: -12%;
+    left: -6%;
+    width: 15vw;
+  }
 }
 
 @media (prefers-reduced-motion: no-preference) {

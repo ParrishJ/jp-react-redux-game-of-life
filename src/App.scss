@@ -25,36 +25,35 @@
 
 .sun {
   position: absolute;
-  top: -8%;
-  left: -25%;
-  width: 55vw;
+  top: -15%;
+  left: -17%;
+  width: 40vw;
 
   @media(min-width: 576px){
-    top: -15%;
-    left: -25%;
-    width: 55vw;
+    top: -25%;
+    left: -20%;
   }
   @media(min-width: 768px){
     
-    top: -17%;
+    top: -30%;
     left: -17%;
-    width: 45vw;
+    width: 35vw;
   }
  
   @media(min-width: 992px){
-    top: -10%;
+    top: -22%;
     left: -10%;
-    width: 30vw;
-  }
-  @media(min-width: 1200px){
-    top: -10%;
-    left: -7%;
     width: 20vw;
   }
-  @media(min-width: 1600px){
-    top: -12%;
-    left: -6%;
+  @media(min-width: 1200px){
+    top: -20%;
+    left: -7%;
     width: 15vw;
+  }
+  @media(min-width: 1600px){
+    top: -25%;
+   
+   
   }
 }
 

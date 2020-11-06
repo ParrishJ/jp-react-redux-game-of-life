@@ -592,6 +592,7 @@ export const cellReducer = (state = initialState, action) => {
 
         return{
           ...state,
+          generations: 0,
           cells: [...state.cellsCopy],
           cellsCopy: cellGenerator(),
           

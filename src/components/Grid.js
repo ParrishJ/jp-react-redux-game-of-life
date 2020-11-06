@@ -1,7 +1,6 @@
 import React from 'react'
 
-
-
+import PrimaryControls from './PrimaryControls'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
@@ -27,7 +26,13 @@ const Grid = (props) => {
     return (
         <Container className="grid" fluid>
             <Row className="d-lg-none">
+                
                 <h1 className="gridSiteTitle text-center mx-auto my-4">Conway<span className="titleApostrophe">'</span>s <br />Game of Life</h1>
+            </Row>
+            <Row className="d-lg-none">
+                <Col xs={12} className="mx-auto mt-2 mb-5">
+                    <PrimaryControls />
+                </Col>
             </Row>
            {props.cells.map(row => {
 

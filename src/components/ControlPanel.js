@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 
 import GridColorRadios from './GridColorRadios'
+import PrimaryControls from './PrimaryControls'
 
 import Container from 'react-bootstrap/Container'
 import Col from 'react-bootstrap/Col'
@@ -60,13 +61,16 @@ const ControlPanel = ({advanceGeneration, toggleDisableCells, clearCells, genera
                     <h1>Generations: <span className="generationsNumber">{generations}</span></h1>
                 </div>
 
-                <ButtonGroup className="w-100" vertical>
+                <Col className="d-none d-lg-block">
+                    <PrimaryControls />
+                </Col>
+                {/* <ButtonGroup className="w-100" vertical>
                         <Button variant="outline-primary" onClick={() => {toggleGenerationActivity(true); toggleButtonsWhileRunning(true); toggleStopButton(false)}} disabled={buttonsWhileRunning}>Start Game</Button>
                         <Button variant="outline-secondary" onClick={(e) => {randomizeCells()}} disabled={buttonsWhileRunning}>Randomize</Button>
                         <Button variant="outline-secondary" onClick={() => { advanceGeneration()}} disabled={buttonsWhileRunning}>Advance Generation</Button>
                         <Button variant="outline-light" onClick={() => {toggleGenerationActivity(false); toggleButtonsWhileRunning(false); toggleStopButton(true)}} disabled={stopButton}>Stop Game</Button>
                         <Button variant="outline-light" onClick={(e) => {clearCells()}} disabled={buttonsWhileRunning}>Clear</Button>
-                </ButtonGroup>
+                </ButtonGroup> */}
                 
                 <div className="mt-4 w-75">
                     <label className="text-center w-100 adjustText" for="gameSpeedRangeControl">Adujst Speed of Game</label>

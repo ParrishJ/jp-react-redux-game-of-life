@@ -22,7 +22,7 @@ function App() {
           <Col className="p-0 p-lg-2 p-xl-5 mb-5 mb-xl-0" xs={12} /* lg={6} */ lg={5}>
             <ControlPanel />
           </Col>
-          <Col className="p-0 p-lg-2 p-xl-5" xs={12} /* lg={6} */ lg={7}>
+          <Col className="p-0 p-lg-5" xs={12} /* lg={6} */ lg={7}>
             <Grid />
           </Col>
         </Row>

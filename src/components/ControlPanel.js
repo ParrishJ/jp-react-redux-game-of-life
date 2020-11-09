@@ -2,11 +2,10 @@ import React, { useState, useEffect } from 'react'
 
 import GridColorRadios from './GridColorRadios'
 import PrimaryControls from './PrimaryControls'
+import ModalButtons from './ModalButtons'
 
 import Container from 'react-bootstrap/Container'
 import Col from 'react-bootstrap/Col'
-import Button from 'react-bootstrap/Button'
-import ButtonGroup from 'react-bootstrap/ButtonGroup'
 import './ControlPanel.scss'
 
 import { connect } from 'react-redux'
@@ -61,7 +60,7 @@ const ControlPanel = ({advanceGeneration, toggleDisableCells, clearCells, genera
                     <h1>Generations: <span className="generationsNumber">{generations}</span></h1>
                 </div>
 
-                <Col className="d-none d-lg-block">
+                <Col className="d-none d-lg-flex">
                     <PrimaryControls />
                 </Col>
                 {/* <ButtonGroup className="w-100" vertical>
@@ -79,16 +78,13 @@ const ControlPanel = ({advanceGeneration, toggleDisableCells, clearCells, genera
 
                 <GridColorRadios />
 
-                <ButtonGroup vertical className="w-100 mt-4">
+                {/* <ButtonGroup vertical className="w-100 mt-4">
                     <Button variant="outline-info" onClick={() => {toggleShowGolModal(true)}}>About Conway's Game of Life</Button>
                     <Button variant="outline-info" onClick={() => {toggleShowMeModal(true)}}>About me</Button>
-                </ButtonGroup>
+                </ButtonGroup> */}
+                <ModalButtons />
             </Col>
-            
-            
-
         </Container>
-        
         </>
     )
 }

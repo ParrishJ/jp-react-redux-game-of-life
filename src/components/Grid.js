@@ -126,7 +126,9 @@ const Grid = (props) => {
                 )
             }
            })}
-        <ModalButtons />
+        <div className="d-none d-lg-block d-xl-none">
+            <ModalButtons  />
+        </div>
         </Container>
     )
 }

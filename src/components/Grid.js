@@ -28,14 +28,13 @@ const Grid = (props) => {
     return (
         <Container className="grid" fluid>
             <Row className="d-lg-none">
-                
-                <h1 className="gridSiteTitle text-center mx-auto my-4">Conway<span className="titleApostrophe">'</span>s <br />Game of Life</h1>
+                <h1 className="gridSiteTitle text-center mx-auto mt-4 mb-2 my-lg-4">Conway<span className="titleApostrophe">'</span>s <br />Game of Life</h1>
             </Row>
-            <Row className="d-lg-none">
-                <Col xs={12} className="mx-auto mt-2 mb-5">
-                    <PrimaryControls />
-                </Col>
-            </Row>
+           
+            <Col xs={12} className="d-lg-none mx-auto mt-3 mb-4 mb-lg-5 p-0">
+                <PrimaryControls />
+            </Col>
+            
            {props.cells.map(row => {
 
             if (props.gridColors === 'Fancy'){

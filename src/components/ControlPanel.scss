@@ -1,38 +1,39 @@
 
-
-#controlPanelSiteTitle {
-    color: white;
-    font-size: 4vw;
-}
-
-#controlPanelSiteTitleContainer {
-    color: white;
-}
-
-.generations {
-    color: white;
-    font-size: 7vw;
-
-    @media(min-width: 992px){
-        font-size: 3vw;
+.controlPanel{
+    h1#controlPanelSiteTitle {
+        color: white;
+        font-size: 4vw;
     }
-    @media(min-width: 1200px){
-        font-size: 2vw;
+
+    /* #controlPanelSiteTitleContainer {
+        color: white;
+    } */
+
+    .generations {
+        color: white;
+        font-size: 7vw;
+
+        @media(min-width: 992px){
+            font-size: 3vw;
+        }
+        @media(min-width: 1200px){
+            font-size: 2vw;
+        }
     }
-}
 
-.generationsNumber{
-    color: #FF9E03
-} 
+    .generationsNumber{
+        color: #FF9E03
+    } 
 
-.titleApostrophe {
-    color:  #FF9E03
-}
+    .titleApostrophe {
+        color:  #FF9E03
+    }
 
-.adjustText {
-    color: #FF9E03
-}
+    .adjustText {
+        color: #FF9E03
+    }
 
-#lgPrimaryControls {
-    max-height: 186px;
+    #lgPrimaryControls {
+        max-height: 186px;
+    }
 }

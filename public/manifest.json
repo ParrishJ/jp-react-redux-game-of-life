@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Conway's Game of Life - JP Implementation",
+  "name": "Conway's Game of Life - JP Implementation",
   "icons": [
     {
       "src": "fgame-of-life-favicon.ico",

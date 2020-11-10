@@ -53,27 +53,27 @@ const ControlPanel = ({advanceGeneration, toggleDisableCells, clearCells, genera
             
             <Col xs={12} className="d-flex flex-column align-items-center">
                 <div className="d-none d-lg-block align-self-start">
-                    <h1 className="siteTitle">Conway<span className="titleApostrophe">'</span>s <br />Game of Life</h1>
+                    <h1 className="siteTitle" id="controlPanelSiteTitle">Conway<span className="titleApostrophe">'</span>s <br />Game of Life</h1>
                 </div>
             
-                <div className="generations align-self-lg-start my-4">
-                    <h1>Generations: <span className="generationsNumber">{generations}</span></h1>
+                <div className="align-self-lg-start mt-3 mb-2 my-lg-4">
+                    <h1 className="generations">Generations: <span className="generationsNumber">{generations}</span></h1>
                 </div>
 
-                <Col className="d-none d-lg-flex">
-                    <PrimaryControls />
+                <Col className="d-none d-lg-flex" id="lgPrimaryControls">
+                    <PrimaryControls id="lgPrimaryControls"/>
                 </Col>
                 
-                <div className="mt-4 w-75">
+                <div className="mb-2 mt-lg-4 w-75">
                     <label className="text-center w-100 adjustText" for="gameSpeedRangeControl">Adujst Speed of Game</label>
                     <input className="text-center w-100 form-control-range" type="range" min="0" max={maxRangeValue} value={rangeValue} onChange={handleRangeChange} id="gameSpeedRangeControl"></input>
                 </div>
 
                 <GridColorRadios />
 
-                <div className="d-lg-none d-xl-block">
+                <Col className="d-lg-none d-xl-block w-100">
                     <ModalButtons />
-                </div>
+                </Col>
             </Col>
         </Container>
         </>

@@ -53,7 +53,7 @@ const ControlPanel = ({advanceGeneration, toggleDisableCells, clearCells, genera
             
             <Col xs={12} className="d-flex flex-column align-items-center">
                 <div className="d-none d-lg-block align-self-start">
-                    <h1 className="siteTitle" id="controlPanelSiteTitle">Conway<span className="titleApostrophe">'</span>s <br />Game of Life</h1>
+                    <h1 id="controlPanelSiteTitle">Conway<span className="titleApostrophe">'</span>s <br />Game of Life</h1>
                 </div>
             
                 <div className="align-self-lg-start mt-3 mb-2 my-lg-4">
@@ -69,7 +69,7 @@ const ControlPanel = ({advanceGeneration, toggleDisableCells, clearCells, genera
                     <input className="text-center w-100 form-control-range" type="range" min="0" max={maxRangeValue} value={rangeValue} onChange={handleRangeChange} id="gameSpeedRangeControl"></input>
                 </div>
 
-                <GridColorRadios />
+                <GridColorRadios className="mb-2"/>
 
                 <Col className="d-lg-none d-xl-block w-100">
                     <ModalButtons />

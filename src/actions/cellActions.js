@@ -9,6 +9,8 @@ export const TOGGLE_STOP_BUTTON = "TOGGLE_STOP_BUTTON";
 export const TOGGLE_BUTTONS_WHILE_RUNNING = "TOGGLE_BUTTONS_WHILE_RUNNING";
 export const TOGGLE_SHOW_GOL_MODAL = "TOGGLE_SHOW_GOL_MODAL";
 export const TOGGLE_SHOW_ME_MODAL = "TOGGLE_SHOW_ME_MODAL";
+export const TOGGLE_SHOW_WARNING_MODAL = "TOGGLE_SHOW_WARNING_MODAL";
+
 
 // The actions here are pretty self explanitory:
 // The toggleAlive switches the alive state of a cell
@@ -62,4 +64,8 @@ export const toggleShowGolModal = (bool) => (dispatch) => {
 
 export const toggleShowMeModal = (bool) => (dispatch) => {
     dispatch({ type: TOGGLE_SHOW_ME_MODAL, payload: bool})
+}
+
+export const toggleShowWarningModal = (bool) => (dispatch) => {
+    dispatch({ type: TOGGLE_SHOW_WARNING_MODAL, payload: bool})
 }

@@ -13,10 +13,10 @@ import './Modals.scss'
 
 import { connect } from 'react-redux'
 
-import { toggleShowGolModal, toggleShowMeModal  } from '../actions/cellActions'
+import { toggleShowGolModal, toggleShowMeModal, toggleShowWarningModal  } from '../actions/cellActions'
 
 //Destructured props instead of just passing props here
-const Modals = ({ showGolModal, showMeModal, toggleShowGolModal, toggleShowMeModal  }) => {
+const Modals = ({ showGolModal, showMeModal, showWarningModal, toggleShowGolModal, toggleShowMeModal, toggleShowWarningModal  }) => {
      
     return (
         <>
@@ -94,6 +94,30 @@ const Modals = ({ showGolModal, showMeModal, toggleShowGolModal, toggleShowMeMod
             </Container>
             </Modal.Body>
         </Modal>
+        <Modal
+        show={showWarningModal}
+        onHide={() => toggleShowWarningModal(false)}
+        dialogClassName="wideModal"
+        aria-labelledby="warning-title"
+        >
+            <Modal.Header closeButton>
+            <Modal.Title>
+                Epilepsy Warning
+            </Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+            <Container fluid>
+            <Row className="justify-content-md-center align-items-center my-5 flex-column-reverse flex-md-row">
+                <Col className="my-5 mx-auto mx-md-4 my-md-0" xs={10} sm={5} >
+                    <h1 className="text-warning">WARNING</h1>
+                    
+                    <p>The simulations on this website produce flashing images that may trigger seizures in those with photosensitive epilepsy. The content on this website may not be suitable for those with photosensitive epilepsy or for those living with other photosensitivity issues.</p>
+                </Col>
+                  
+            </Row>
+            </Container>
+            </Modal.Body>
+        </Modal>
         </>
     )
 }
@@ -101,8 +125,9 @@ const Modals = ({ showGolModal, showMeModal, toggleShowGolModal, toggleShowMeMod
 const mapStateToProps = (state) => {
     return {
         showGolModal: state.showGolModal,
-        showMeModal: state.showMeModal
+        showMeModal: state.showMeModal,
+        showWarningModal: state.showWarningModal,
     }
 }
 
-export default connect(mapStateToProps, { toggleShowGolModal, toggleShowMeModal  })(Modals)
+export default connect(mapStateToProps, { toggleShowGolModal, toggleShowMeModal, toggleShowWarningModal  })(Modals)

@@ -111,7 +111,7 @@ const Modals = ({ showGolModal, showMeModal, showWarningModal, toggleShowGolModa
                 <Col className="my-5 mx-auto mx-md-4 my-md-0" xs={10} sm={5} >
                     <h1 className="text-warning">WARNING</h1>
                     
-                    <p>The simulations on this website produce flashing images that may trigger seizures in those with photosensitive epilepsy. The content on this website may not be suitable for those with photosensitive epilepsy or for those living with other photosensitivity issues.</p>
+                    <p>The simulations on this website produce flashing images that may trigger seizures in those with photosensitive epilepsy. The content on this website may not be suitable for those with photosensitive epilepsy or for those living with other photosensitive conditions.</p>
                 </Col>
                   
             </Row>

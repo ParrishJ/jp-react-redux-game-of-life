@@ -1,6 +1,6 @@
 
 
-.siteTitle {
+#controlPanelSiteTitle {
     color: white;
     font-size: 4vw;
 }
@@ -8,15 +8,18 @@
 .generations {
     color: white;
     font-size: 7vw;
+
+    @media(min-width: 992px){
+        font-size: 3vw;
+    }
+    @media(min-width: 1200px){
+        font-size: 2vw;
+    }
 }
 
 .generationsNumber{
     color: #FF9E03
 } 
-
-.controlPanel {
-
-}
 
 .titleApostrophe {
     color:  #FF9E03
@@ -24,4 +27,8 @@
 
 .adjustText {
     color: #FF9E03
+}
+
+#lgPrimaryControls {
+    max-height: 186px;
 }

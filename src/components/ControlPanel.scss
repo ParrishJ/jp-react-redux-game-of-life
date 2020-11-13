@@ -1,3 +1,14 @@
+h1#generationsText {
+    //color: white;
+    font-size: 7vw;
+
+    @media(min-width: 992px){
+        font-size: 3vw;
+    }
+    @media(min-width: 1200px){
+        font-size: 2vw;
+    }
+}
 
 .controlPanel{
    /*  h1#controlPanelSiteTitle {
@@ -8,18 +19,6 @@
     /* #controlPanelSiteTitleContainer {
         color: white;
     } */
-
-    p#generationsText {
-        //color: white;
-        font-size: 7vw;
-
-        @media(min-width: 992px){
-            font-size: 3vw;
-        }
-        @media(min-width: 1200px){
-            font-size: 2vw;
-        }
-    }
 
     .generationsNumber{
         color: #FF9E03

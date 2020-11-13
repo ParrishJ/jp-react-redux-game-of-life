@@ -58,7 +58,7 @@ const ControlPanel = ({advanceGeneration, toggleDisableCells, clearCells, genera
                 </div>
             
                 <div className="align-self-lg-start mt-3 mb-2 my-lg-4">
-                    <p style={{color: 'white'}} className="generations" id="generationsText">Generations: <span className="generationsNumber">{generations}</span></p>
+                    <h1 style={{color: 'white'}} id="generationsText">Generations: <span className="generationsNumber">{generations}</span></h1>
                 </div>
 
                 <Col className="d-none d-lg-flex" id="lgPrimaryControls">

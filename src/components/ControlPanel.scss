@@ -11,13 +11,13 @@
 
     .generations {
         //color: white;
-        font-size: 7vw;
+        font-size: 7vw !important;
 
         @media(min-width: 992px){
-            font-size: 3vw;
+            font-size: 3vw !important;
         }
         @media(min-width: 1200px){
-            font-size: 2vw;
+            font-size: 2vw !important;
         }
     }
 

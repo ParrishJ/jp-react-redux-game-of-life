@@ -9,15 +9,15 @@
         color: white;
     } */
 
-    h1#generationsHeading {
+    p#generationsText {
         //color: white;
-        font-size: 7vw !important;
+        font-size: 7vw;
 
         @media(min-width: 992px){
-            font-size: 3vw !important;
+            font-size: 3vw;
         }
         @media(min-width: 1200px){
-            font-size: 2vw !important;
+            font-size: 2vw;
         }
     }
 

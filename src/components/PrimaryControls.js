@@ -12,25 +12,6 @@ import { advanceGeneration, clearCells, randomizeCells, toggleDisableCells, togg
 //Destructured props instead of just passing props here
 const PrimaryControls = ({advanceGeneration, clearCells, randomizeCells, toggleGenerationActivity, toggleButtonsWhileRunning, toggleStopButton, stopButton, buttonsWhileRunning }) => {
     
-   
-    
-    // useEffect uses setInterval to trigger the advanceGeneration function based on the rangeValue state.
-    // This useEffect function is also responsible for triggering the toggleDisableCells function to toggle the cellsEnabled state of the cells so 
-    // that the cells cannot be clicked on while the function is running
-    /* useEffect(() => {
-        let generationIntervalId;
-       
-        if(generationActivity){
-            advanceGeneration();
-            toggleDisableCells(false);
-            generationIntervalId = setInterval(advanceGeneration, (maxRangeValue - rangeValue));
-            }
-            
-        return() => {clearInterval(generationIntervalId); toggleDisableCells(true)}
-    }, [generationActivity, rangeValue, advanceGeneration, toggleDisableCells, gridColor]) */
-
-    
-    
     return (
         <>
             <ButtonGroup className="w-100" vertical>

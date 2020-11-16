@@ -2,7 +2,7 @@
 
 Conway’s Game of Life is a classic computer science simulation that employs a few simple rules to create cellular automata that “live”, “die”, and create some stunning patterns throughout their collective lifecycles.
 
-My Implementation uses [React](https://github.com/facebook/react), [Redux](https://github.com/reduxjs/redux), [React-BootStrap](https://github.com/react-bootstrap/react-bootstrap), and a handful of other libraries to create an aesthetically pleasing and performant model of John Conway’s famous game.
+My Implementation uses [React](https://github.com/facebook/react), [Redux](https://github.com/reduxjs/redux), [React BootStrap](https://github.com/react-bootstrap/react-bootstrap), and a handful of other libraries to create an aesthetically pleasing and performant model of John Conway’s famous game.
 
 ## What is Conway’s Game of Life?
 
@@ -49,9 +49,9 @@ Probably the most challenging element of this project was dealing with how JavaS
 
 ## Future Features
 
-- [ ] Implement mobile styling for the game
+- [x] Implement mobile styling for the game
 
-- [ ] Implement functionality that would allow the user to change the shape and / or color of the cells. 
+- [x] Implement functionality that would allow the user to change the color of the cells. 
 
 - [ ] Implement functionality that would allow the user to start the simulation off with some of the more interesting arrangements of cells that have been discovered in The Game of Life.
 

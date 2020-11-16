@@ -11,7 +11,7 @@ import Figure from 'react-bootstrap/Figure'
 import sun from './images/sun-1.svg'
 
 import './App.scss';
-/* import 'bootstrap/dist/css/bootstrap.min.css'; */
+
 
 function App() {
   return (
@@ -19,10 +19,10 @@ function App() {
       <div className="containerContainer d-flex mx-auto justify-content-center align-items-center">
         <Container className="appContainer" fluid>
         <Row className="m-0 h-100 flex-column-reverse flex-lg-row">
-          <Col className="p-0 p-lg-2 p-xl-5 mb-5 mb-xl-0" xs={12} /* lg={6} */ lg={5}>
+          <Col className="p-0 p-lg-2 p-xl-5 mb-5 mb-xl-0" xs={12} lg={5}>
             <ControlPanel />
           </Col>
-          <Col className="p-0 p-lg-5" xs={12} /* lg={6} */ lg={7}>
+          <Col className="p-0 p-lg-5" xs={12} lg={7}>
             <Grid />
           </Col>
         </Row>
@@ -30,18 +30,11 @@ function App() {
         </Container>
         <Figure className="sun">
         <Figure.Image
-         /*  width={10vw}
-          height={250} */
           alt="sun-image"
           src={sun}
         />
       </Figure>
-      
       </div>
-      
-      
-      
-     {/*  <Footer /> */}
     </div>
   );
 }

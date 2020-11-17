@@ -45,6 +45,8 @@ export default App
 /* Software used in the creation of this project:
 _________________________________________________________________________________________________________________________
 
+create-react-app - License: MIT, Copyright (c) 2013-present, Facebook, Inc.
+
 @testing-library/jest-dom - License: MIT, Copyright (c) 2017 Kent C. Dodds
 
 @testing-library/react - License: MIT, Copyright (c) 2017 Kent C. Dodds

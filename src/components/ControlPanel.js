@@ -6,7 +6,6 @@ import ModalButtons from './ModalButtons'
 
 import Container from 'react-bootstrap/Container'
 import Col from 'react-bootstrap/Col'
-import './ControlPanel.scss'
 
 import { connect } from 'react-redux'
 

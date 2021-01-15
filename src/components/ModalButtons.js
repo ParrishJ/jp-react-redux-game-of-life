@@ -8,8 +8,6 @@ import { connect } from 'react-redux'
 import { toggleShowGolModal, toggleShowMeModal  } from '../actions/cellActions'
 
 const ModalControls = ({ toggleShowGolModal, toggleShowMeModal }) => {
-    
-   
     return (
         <>
             <ButtonGroup vertical className="w-100 mt-4">
@@ -20,10 +18,4 @@ const ModalControls = ({ toggleShowGolModal, toggleShowMeModal }) => {
     )
 }
 
-const mapStateToProps = (state) => {
-    return {
-        
-    }
-}
-
-export default connect(mapStateToProps, { toggleShowGolModal, toggleShowMeModal })(ModalControls)
+export default connect(null, { toggleShowGolModal, toggleShowMeModal })(ModalControls)

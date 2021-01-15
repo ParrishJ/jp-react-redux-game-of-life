@@ -1,4 +1,7 @@
 import React, { useState, useEffect } from 'react'
+import { connect } from 'react-redux'
+
+import { advanceGeneration, clearCells, randomizeCells, toggleDisableCells, toggleGenerationActivity, toggleButtonsWhileRunning, toggleStopButton, toggleShowGolModal, toggleShowMeModal  } from '../actions/cellActions'
 
 import GridColorRadios from './GridColorRadios'
 import PrimaryControls from './PrimaryControls'
@@ -6,16 +9,11 @@ import ModalButtons from './ModalButtons'
 
 import Container from 'react-bootstrap/Container'
 import Col from 'react-bootstrap/Col'
-import './ControlPanel.scss'
 
-import { connect } from 'react-redux'
 
-import { advanceGeneration, clearCells, randomizeCells, toggleDisableCells, toggleGenerationActivity, toggleButtonsWhileRunning, toggleStopButton, toggleShowGolModal, toggleShowMeModal  } from '../actions/cellActions'
-
-//Destructured props instead of just passing props here
-const ControlPanel = ({advanceGeneration, toggleDisableCells, clearCells, generations, randomizeCells, gridColor, generationActivity, toggleGenerationActivity, toggleButtonsWhileRunning, toggleStopButton, stopButton, buttonsWhileRunning, toggleShowGolModal, toggleShowMeModal }) => {
+const ControlPanel = ({advanceGeneration, toggleDisableCells, generations, gridColor, generationActivity }) => {
     
-    // In order have the range slider speed the animation up as the slider moves to the right, I have to subtract the rangeValue from the maxRangeValue. 
+    // In order have the range slider speed the animation up as the slider is moved to the right, I have to subtract the rangeValue from the maxRangeValue. 
     // I'm setting a max range value here so that I only need to adjust it in one place in the future.
     const maxRangeValue = 2000
 
@@ -46,32 +44,23 @@ const ControlPanel = ({advanceGeneration, toggleDisableCells, clearCells, genera
     
     return (
         <>
-        {/* <CustomStyles /> */}
         {/* Control panel and and title component */}
         <Container className="controlPanel d-flex flex-column h-100" fluid>
-            
-            
             <Col xs={12} className="d-flex flex-column align-items-center">
-                
                 <div className="d-none d-lg-block align-self-start">
                     <h1 id="controlPanelSiteTitle" style={{color: 'white', fontSize: '4vw'}}>Conway<span className="titleApostrophe">'</span>s <br />Game of Life</h1>
                 </div>
-            
                 <div className="align-self-lg-start mt-3 mb-2 my-lg-4">
                     <h1 style={{color: 'white' }} id="generationsText">Generations: <span className="generationsNumber">{generations}</span></h1>
                 </div>
-
                 <Col className="d-none d-lg-flex" id="lgPrimaryControls">
                     <PrimaryControls id="lgPrimaryControls"/>
                 </Col>
-                
                 <div className="mb-2 mt-lg-4 w-75">
                     <label className="text-center w-100 adjustText" for="gameSpeedRangeControl">Adujst Speed of Game</label>
                     <input className="text-center w-100 form-control-range" type="range" min="0" max={maxRangeValue} value={rangeValue} onChange={handleRangeChange} id="gameSpeedRangeControl"></input>
                 </div>
-
                 <GridColorRadios className="mb-2"/>
-
                 <Col className="d-lg-none d-xl-block w-100">
                     <ModalButtons />
                 </Col>

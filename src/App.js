@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 import Grid from './components/Grid'
 import ControlPanel from './components/ControlPanel'
@@ -8,32 +8,31 @@ import Col from 'react-bootstrap/Col'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Figure from 'react-bootstrap/Figure'
-import sun from './images/sun-1.svg'
+import sun from './images/sun.svg'
 
 import './App.scss';
-
 
 function App() {
   return (
     <div className="App" id="app">
       <div className="containerContainer d-flex mx-auto justify-content-center align-items-center">
         <Container className="appContainer" fluid>
-        <Row className="m-0 h-100 flex-column-reverse flex-lg-row">
-          <Col className="p-0 p-lg-2 p-xl-5 mb-5 mb-xl-0" xs={12} lg={5}>
-            <ControlPanel />
-          </Col>
-          <Col className="p-0 p-lg-5" xs={12} lg={7}>
-            <Grid />
-          </Col>
-        </Row>
-        <Modals />
+          <Row className="m-0 h-100 flex-column-reverse flex-lg-row">
+            <Col className="p-0 p-lg-2 p-xl-5 mb-5 mb-xl-0" xs={12} lg={5}>
+              <ControlPanel />
+            </Col>
+            <Col className="p-0 p-lg-5" xs={12} lg={7}>
+              <Grid />
+            </Col>
+          </Row>
+          <Modals />
         </Container>
         <Figure className="sun">
-        <Figure.Image
-          alt="sun-image"
-          src={sun}
-        />
-      </Figure>
+          <Figure.Image
+            alt="sun-image"
+            src={sun}
+          />
+        </Figure>
       </div>
     </div>
   );

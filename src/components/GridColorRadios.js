@@ -1,11 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState } from 'react'
+import { connect } from 'react-redux'
+
+import { toggleFancyColors, clearCells, toggleGenerationActivity, toggleStopButton, toggleButtonsWhileRunning } from '../actions/cellActions'
+
 import ButtonGroup from 'react-bootstrap/ButtonGroup'
 import ToggleButton from 'react-bootstrap/ToggleButton'
 
-import { connect } from 'react-redux'
-import { toggleFancyColors, clearCells, toggleGenerationActivity, toggleStopButton, toggleButtonsWhileRunning } from '../actions/cellActions'
-
-const GridColorRadios = ({ toggleFancyColors, clearCells, toggleGenerationActivity, toggleStopButton, toggleButtonsWhileRunning, stopButton, buttonsWhileRunning }) => {
+const GridColorRadios = ({ toggleFancyColors, clearCells, toggleGenerationActivity, toggleStopButton, toggleButtonsWhileRunning }) => {
     
     // State for radio color selector
     const [colorValue, setColorValue] = useState('Plain')

@@ -1,26 +1,23 @@
- .grid:after {
-     content: "";
-     display: block;
-     
-   }
- 
- 
- .cell:after {
-     content: "";
-     display: block;
-     padding-bottom: 100%;
-   }
- 
- 
+.grid:after {
+  content: "";
+  display: block;
+}
 
+.cell:after {
+  content: "";
+  display: block;
+  padding-bottom: 100%;
+}
+ 
 .gridSiteTitle {
-    font-size: 7vw;
-    color: white;
+  font-size: 7vw;
+  color: white;
 }
 
 .activeCell{
   background-color: white;
 }
+
 .activeCellLightOrange {
   background-color: #FF8C47;
 }
@@ -28,7 +25,6 @@
 .activeCellOrange {
   background-color: #E84941;
 }
-
 
 .activeCellPink {
   background-color: #FF54F8;

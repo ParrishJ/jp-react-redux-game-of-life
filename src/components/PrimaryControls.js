@@ -1,17 +1,12 @@
 import React from 'react'
-
-
-import Button from 'react-bootstrap/Button'
-import ButtonGroup from 'react-bootstrap/ButtonGroup'
-
-
 import { connect } from 'react-redux'
 
 import { advanceGeneration, clearCells, randomizeCells, toggleDisableCells, toggleGenerationActivity, toggleButtonsWhileRunning, toggleStopButton, toggleShowGolModal, toggleShowMeModal  } from '../actions/cellActions'
 
-//Destructured props instead of just passing props here
+import Button from 'react-bootstrap/Button'
+import ButtonGroup from 'react-bootstrap/ButtonGroup'
+
 const PrimaryControls = ({advanceGeneration, clearCells, randomizeCells, toggleGenerationActivity, toggleButtonsWhileRunning, toggleStopButton, stopButton, buttonsWhileRunning }) => {
-    
     return (
         <>
             <ButtonGroup className="w-100" vertical>
@@ -27,7 +22,6 @@ const PrimaryControls = ({advanceGeneration, clearCells, randomizeCells, toggleG
 
 const mapStateToProps = (state) => {
     return {
-        
         generationActivity: state.generationActivity,
         stopButton: state.stopButton,
         buttonsWhileRunning: state.buttonsWhileRunning,

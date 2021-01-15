@@ -20,7 +20,7 @@ Once the simulation is initialized, the cells then move on to successive generat
 
 * If a cell is dead and has exactly three neighbors that are alive, it will be alive during the next generation.
 
-* Lastly, if a cell is dead and has any number of neighbors other than three, the cell will continue to be dead during the next generation.
+* Lastly, if a cell is dead and has more or less than three neighbors, the cell will continue to be dead during the next generation.
 
 This simple set of rules allows the cells to either multiply or be reduced from generation to generation, sometimes forming some astounding patterns along the way. Perhaps the most interesting feature of Conway’s game of life is that it demonstrates that patterns of immense complexity can spring forth from a few simple constraints.
 

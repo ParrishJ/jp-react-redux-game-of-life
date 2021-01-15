@@ -4,19 +4,18 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
 
 h1#generationsText {
-  //color: white;
   font-size: 7vw;
 
   @media(min-width: 992px){
       font-size: 3vw;
   }
+
   @media(min-width: 1200px){
       font-size: 2vw;
   }
 }
 
 .controlPanel{
-  
   .generationsNumber{
       color: #FF9E03
   } 
@@ -34,14 +33,11 @@ h1#generationsText {
   }
 }
 
-
 .App {
-  
   background-color: #1C0D30;
   height: 100%;
   min-height: 100vh;
   font-family: 'Poppins', sans-serif;
-
 }
 
 .appContainer {
@@ -51,7 +47,6 @@ h1#generationsText {
 .containerContainer {
   max-width: 1600px;
   min-height: 100vh;
- 
 }
 
 .sun {
@@ -65,20 +60,17 @@ h1#generationsText {
     left: -70px;
     width: 200px;
   }
+
   @media(min-width: 768px){
-    
     top: -95px;
     left: -95px;
     width: 270px;
   }
  
-  
   @media(min-width: 1800px){
     top: -95px;
     left: -95px;
     width: 300px;
-   
-   
   } 
 }
 

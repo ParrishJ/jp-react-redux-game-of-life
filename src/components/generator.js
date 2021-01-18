@@ -1,7 +1,7 @@
 // This function generates copies of the nested cells array such that each cell starts with its alive state as false. 
-// The result of the generation is an array that contains 25 nested arrays each with 25 elements
-// Each cell has an alive state, a clickable state, a row id, column id, and an individual cell id. 
-// I'm using this function to get around issues with mutability and JavaScript
+// The result of the generation is an array that contains 25 nested arrays each with 25 elements, or cells, which each contain an object
+// Each cell's object has an alive property, a clickable property, a row id property, column id property, and an individual cell id property. 
+// I'm using this function to get around issues that arise from JavaScript passing arrays by reference 
 
 export const cellGenerator = () => {
 let cellCount = 25
